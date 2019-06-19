@@ -1,0 +1,11 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+[user]
+	email = rich@posert.com
+	name = Rich Posert
+[core]
+	editor = vim
