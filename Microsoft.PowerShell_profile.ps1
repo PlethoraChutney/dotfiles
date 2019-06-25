@@ -1,11 +1,18 @@
 # powershell environment preferences
-Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Blue
-Set-PSReadlineOption -BellStyle None
-Set-PSReadlineKeyHandler -Key Tab -Function Complete
+
 Import-Module posh-git
 
-$SCRIPTDIR = 'C:\Users\rich\Documents\Scripts'
-$EXPERIMENTDIR = 'C:\Users\rich\Documents\Baconguis_Lab\Experiments'
+Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Green
+Set-PSReadlineOption -TokenKind String -ForegroundColor Blue
+Set-PSReadlineOption -BellStyle None
+Set-PSReadlineKeyHandler -Key Tab -Function Complete
+$Host.PrivateData.ProgressForegroundColor = 'Green'
+$Host.PrivateData.ProgressBackgroundColor = 'Black'
+
+# directory traversing
+$DOCDIR = 'D:\Rich\Documents\'
+$SCRIPTDIR = "$DOCDIR\Scripts"
+$EXPERIMENTDIR = "$DOCDIR\Experiments"
 
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
