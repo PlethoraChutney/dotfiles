@@ -16,6 +16,7 @@ $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
+function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
 
 # alias some git unix functions for instinct reasons
 function login-gitbash {& 'C:\Program Files\Git\bin\sh.exe' --login}
@@ -27,9 +28,7 @@ Set-Alias -Name grep -Value 'C:\Program Files\Git\usr\bin\grep.exe'
 Set-Alias -Name which -Value Get-Command
 Set-Alias -Name exp -Value Go-To-Experiment
 Set-Alias -Name cds -Value Go-To-Scripts
-
-# Make atom read directly from the github directory
-$ATOM_HOME='~/.dotfiles/.atom/'
+Set-Alias -Name ln -Value Make-Symlink
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
