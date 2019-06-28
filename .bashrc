@@ -33,14 +33,13 @@ esac
 
 
 # exacloud logins
-alias exahead="ssh posert@exahead1.ohsu.edu"
-alias troll="ssh posert@troll.ohsu.edu"
-alias hotspur="ssh posert@hotspur.ohsu.edu"
-alias falstaff="ssh posert@falstaff.ohsu.edu"
-alias hen4="ssh posert@henry4.ohsu.edu"
-alias hen5="ssh posert@henry5.ohsu.edu"
-alias cascade="ssh pose732@cascade.emsl.pnl.gov"
-export DISPLAY=localhost:0
+alias troll="ssh -X posert@troll.ohsu.edu"
+alias hotspur="ssh -X posert@hotspur.ohsu.edu"
+alias falstaff="ssh -X posert@falstaff.ohsu.edu"
+alias hen4="ssh -X posert@henry4.ohsu.edu"
+alias hen5="ssh -X posert@henry5.ohsu.edu"
+alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
+export DISPLAY=127.0.0.1:0
 
 # coloration and ls aliases
 alias ls="ls --color=auto"
