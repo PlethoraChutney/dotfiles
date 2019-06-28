@@ -1,0 +1,45 @@
+"*":
+  Hydrogen:
+    debug: true
+  "atom-latex":
+    bibtex: "biber"
+    build_after_save: false
+    custom_toolchain: "%TEX %ARG %DOC && %TEX %ARG %DOC && %TEX %ARG %DOC"
+    focus_viewer: true
+    hide_log_if_success: true
+  core:
+    autoHideMenuBar: true
+    closeDeletedFileTabs: true
+    disabledPackages: [
+      "markdown-preview"
+    ]
+    restorePreviousWindowsOnStart: "no"
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "firewatch-syntax"
+    ]
+    uriHandlerRegistration: "always"
+  editor: {}
+  "exception-reporting":
+    userId: "1029e299-a145-45b1-a182-3b697d4b3e90"
+  "fuzzy-finder":
+    scoringSystem: "fast"
+    useRipGrep: true
+  minimap: {}
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.rst"
+      "text.restructuredtext"
+      "text.tex.latex"
+    ]
+  welcome:
+    showOnStartup: false
+".latex.tex.text":
+  editor:
+    scrollPastEnd: false

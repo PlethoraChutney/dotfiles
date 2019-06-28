@@ -28,6 +28,9 @@ Set-Alias -Name which -Value Get-Command
 Set-Alias -Name exp -Value Go-To-Experiment
 Set-Alias -Name cds -Value Go-To-Scripts
 
+# Make atom read directly from the github directory
+$ATOM_HOME='~/.dotfiles/.atom/'
+
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
