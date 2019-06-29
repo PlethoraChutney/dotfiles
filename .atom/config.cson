@@ -4,7 +4,6 @@
   "atom-latex":
     bibtex: "biber"
     build_after_save: false
-    custom_toolchain: "%TEX %ARG %DOC && %TEX %ARG %DOC && %TEX %ARG %DOC"
     focus_viewer: true
     hide_log_if_success: true
   core:
