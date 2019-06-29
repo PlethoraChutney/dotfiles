@@ -10,13 +10,11 @@ $Host.PrivateData.ProgressForegroundColor = 'Green'
 $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
 # directory traversing
-$DOCDIR = 'D:\Rich\Documents\'
-If ($env:computername -eq "POSERT-PC") {
-  $DOCDIR = 'C:\Users\rich\Documents\'
-}
+$DOCDIR = [Environment]::GetFolderPath("MyDocuments")
 $SCRIPTDIR = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
+function Go-To-Documents {Set-Location $DOCDIR}
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
 function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
@@ -31,6 +29,7 @@ Set-Alias -Name grep -Value 'C:\Program Files\Git\usr\bin\grep.exe'
 Set-Alias -Name which -Value Get-Command
 Set-Alias -Name exp -Value Go-To-Experiment
 Set-Alias -Name cds -Value Go-To-Scripts
+Set-Alias -Name cdd -Value Go-To-Documents
 Set-Alias -Name ln -Value Make-Symlink
 
 # Chocolatey profile
