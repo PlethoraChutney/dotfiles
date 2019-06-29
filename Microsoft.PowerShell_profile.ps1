@@ -11,6 +11,9 @@ $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
 # directory traversing
 $DOCDIR = 'D:\Rich\Documents\'
+If ($env:computername -eq "POSERT-PC") {
+  $DOCDIR = 'C:\Users\rich\Documents\'
+}
 $SCRIPTDIR = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
