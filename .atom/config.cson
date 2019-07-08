@@ -4,6 +4,7 @@
   "atom-latex":
     bibtex: "biber"
     build_after_save: false
+    file_ext_to_clean: "*.aux, *.bbl, *.blg, *.idx, *.ind, *.lof, *.lot, *.out, *.toc, *.acn, *.acr, *.alg, *.glg, *.glo, *.gls, *.ist, *.fls, *.log, *.fdb_latexmk, *.bcf, *.xml, *.synctex.gz"
     focus_viewer: true
     hide_log_if_success: true
   core:
@@ -12,6 +13,7 @@
     disabledPackages: [
       "markdown-preview"
     ]
+    excludeVcsIgnoredPaths: false
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
