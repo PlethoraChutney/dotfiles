@@ -4,6 +4,8 @@
 	ci = commit
 	st = status
 	last = log -1 HEAD
+	unstage = reset HEAD --
+	loggo = log --oneline --all --graph
 [user]
 	email = rich@posert.com
 	name = Rich Posert
