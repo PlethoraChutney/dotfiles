@@ -2,8 +2,11 @@
 
 Import-Module posh-git
 
-Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Green
-Set-PSReadlineOption -TokenKind String -ForegroundColor Blue
+Set-PsReadLineOption -Colors @{
+    'ForegroundColor' = [ConsoleColor]::Green
+    'String' = [ConsoleColor]::Blue
+    'Parameter' = [ConsoleColor]::Cyan
+}
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function Complete
 $Host.PrivateData.ProgressForegroundColor = 'Green'
