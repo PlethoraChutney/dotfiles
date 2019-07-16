@@ -17,7 +17,7 @@ $DOCDIR = [Environment]::GetFolderPath("MyDocuments")
 $SCRIPTDIR = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
-function Go-To-Documents {Set-Location $DOCDIR}
+function Go-To-Documents ($target) {Set-Location $DOCDIR\$target}
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
 function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
