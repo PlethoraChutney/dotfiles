@@ -112,7 +112,7 @@ module.exports = {
 
     // for environment variables
     env: {
-      TERM: "cygwin"
+      TERM: ""
     },
 
     // set to `false` for no bell
