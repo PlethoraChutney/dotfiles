@@ -112,7 +112,7 @@ module.exports = {
 
     // for environment variables
     env: {
-      TERM: ""
+      TERM: "xterm"
     },
 
     // set to `false` for no bell
