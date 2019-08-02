@@ -111,9 +111,7 @@ module.exports = {
     shellArgs: ['-nologo'],
 
     // for environment variables
-    env: {
-      TERM: "cygwin"
-    },
+    env: { TERM: 'cygwin' },
 
     // set to `false` for no bell
     bell: false,
@@ -140,7 +138,8 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ["hyper-pane", 'hyper-firewatch', 'hypercwd'],
+  //plugins: ["hyper-pane", 'hyper-firewatch', 'hypercwd'],
+  plugins: ['hyper-pane', 'hyper-firewatch'],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
