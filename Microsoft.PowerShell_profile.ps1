@@ -20,7 +20,7 @@ $EXPERIMENTDIR = "$DOCDIR\Experiments"
 function Go-To-Documents ($target) {Set-Location $DOCDIR\$target}
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
-function Go-To-Experiments {Set-Location $EXPERIMENTDIR}
+function Go-To-Experiment-Dir {Set-Location $EXPERIMENTDIR}
 function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
 
 # alias some git unix functions for instinct reasons
@@ -34,7 +34,7 @@ Set-Alias -Name which -Value Get-Command
 Set-Alias -Name exp -Value Go-To-Experiment
 Set-Alias -Name cds -Value Go-To-Scripts
 Set-Alias -Name cdd -Value Go-To-Documents
-Set-Alias -Name cde -Value Go-To-Experiments
+Set-Alias -Name cde -Value Go-To-Experiment-Dir
 Set-Alias -Name ln -Value Make-Symlink
 
 # Chocolatey profile
