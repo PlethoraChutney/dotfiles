@@ -19,7 +19,7 @@ BYel='\[\e[1;33m\]'
 BBlu='\[\e[1;34m\]'
 Pur='\[\e[0;35m\]'
 
-PS1="\n${Gre}\u ${RCol}@ ${BYel}\h ${BBlu}\w ${RCol}$ "
+PS1="${Gre}\u ${RCol}@ ${BYel}\h ${BBlu}\w ${RCol}\n$ "
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
