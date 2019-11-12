@@ -17,7 +17,7 @@ $DOCDIR = [Environment]::GetFolderPath("MyDocuments")
 $SCRIPTDIR = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
-function Go-To-Documents ($target) {Set-Location $DOCDIR\$target}
+function Go-To-Documents ($target) {Set-Location $DOCDIR\$target*}
 function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
 function Go-To-Scripts {Set-Location $SCRIPTDIR}
 function Go-To-Experiment-Dir {Set-Location $EXPERIMENTDIR}
