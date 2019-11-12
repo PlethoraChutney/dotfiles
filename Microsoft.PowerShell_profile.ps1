@@ -17,10 +17,30 @@ $DOCDIR = [Environment]::GetFolderPath("MyDocuments")
 $SCRIPTDIR = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
-function Go-To-Documents ($target) {Set-Location $DOCDIR\$target*}
-function Go-To-Experiment ($exp_no) {Set-Location $EXPERIMENTDIR\Experiment$exp_no*}
-function Go-To-Scripts {Set-Location $SCRIPTDIR}
-function Go-To-Experiment-Dir {Set-Location $EXPERIMENTDIR}
+function Go-To-Documents ($target) {
+  if($target -eq $null) {
+    Set-Location $DOCDIR
+  } else {
+  Set-Location $DOCDIR\$target*
+  }
+}
+
+function Go-To-Experiment ($exp_no) {
+  if($exp_no -eq $null) {
+    Set-Location $EXPERIMENTDIR
+  } else {
+  Set-Location $EXPERIMENTDIR\Experiment$exp_no*
+  }
+}
+
+function Go-To-Scripts ($script_name) {
+  if($script_name -eq $null) {
+    Set-Location $SCRIPTDIR
+  } else {
+    Set-Location $SCRIPTDIR\$script_name*
+  }
+}
+
 function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
 
 # alias some git unix functions for instinct reasons
@@ -34,7 +54,7 @@ Set-Alias -Name which -Value Get-Command
 Set-Alias -Name exp -Value Go-To-Experiment
 Set-Alias -Name cds -Value Go-To-Scripts
 Set-Alias -Name cdd -Value Go-To-Documents
-Set-Alias -Name cde -Value Go-To-Experiment-Dir
+Set-Alias -Name cde -Value Go-To-Experiment
 Set-Alias -Name ln -Value Make-Symlink
 
 # Chocolatey profile
