@@ -52,7 +52,7 @@ export DISPLAY=127.0.0.1:0
 # coloration and ls aliases
 alias ls="ls --color=auto"
 alias la="ls -a"
-alias ll="ls -la"
+alias ll="ls -Falh"
 export GREP_OPTIONS='--color=auto'
 
 # traversal aliases
