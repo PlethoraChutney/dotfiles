@@ -23,7 +23,7 @@
     uriHandlerRegistration: "always"
   editor:
     fontFamily: "Roboto Mono, Menlo, Consolas, DejaVu Sans Mono, monospace"
-    fontSize: 12
+    fontSize: 13
   "exception-reporting":
     userId: "1029e299-a145-45b1-a182-3b697d4b3e90"
   "fuzzy-finder":
