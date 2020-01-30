@@ -14,7 +14,7 @@ $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
 # directory traversing
 $DOCDIR = [Environment]::GetFolderPath("MyDocuments")
-$SCRIPTDIR = "$DOCDIR\Scripts"
+$SCRIPD = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
 function Go-To-Documents ($target) {
@@ -35,9 +35,9 @@ function Go-To-Experiment ($exp_no) {
 
 function Go-To-Scripts ($script_name) {
   if($script_name -eq $null) {
-    Set-Location $SCRIPTDIR
+    Set-Location $SCRIPD
   } else {
-    Set-Location $SCRIPTDIR\$script_name*
+    Set-Location $SCRIPD\$script_name*
   }
 }
 
