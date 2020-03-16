@@ -26,11 +26,17 @@
     fontSize: 13
   "exception-reporting":
     userId: "1029e299-a145-45b1-a182-3b697d4b3e90"
+  "file-icons":
+    coloured: false
   "fuzzy-finder":
     scoringSystem: "fast"
     useRipGrep: true
+  "linter-ui-default":
+    showPanel: true
+    useBusySignal: false
   minimap: {}
   "spell-check":
+    addKnownWords: true
     grammars: [
       "source.asciidoc"
       "source.gfm"
@@ -41,6 +47,36 @@
       "text.restructuredtext"
       "text.tex.latex"
     ]
+    knownWords: [
+      "Ub"
+      "uncleaved"
+      "kDa"
+      "deubiquitinases"
+      "Pruneda"
+      "supercite"
+      "beta$ME"
+      "NeutrAvidin"
+      "beta$ME"
+      "Laemmli"
+      "elutions"
+      "UbiReal"
+      "cisTEM"
+      "flENaC"
+      "cryoDRGN"
+      "FAbs"
+      "Streptactin"
+      "Superdex"
+      "Trp"
+      "Superose"
+      "deubiquitinase"
+      "Cys"
+      "cryoSPARC"
+      "bioarxiv"
+      "numberline"
+      "textit"
+    ]
+  "tool-bar":
+    position: "Left"
   welcome:
     showOnStartup: false
 ".latex.tex.text":
