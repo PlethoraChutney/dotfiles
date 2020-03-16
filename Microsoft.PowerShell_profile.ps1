@@ -1,7 +1,5 @@
 # powershell environment preferences
 
-Import-Module posh-git
-
 Set-PsReadLineOption -Colors @{
     'ForegroundColor' = [ConsoleColor]::Green
     'String' = [ConsoleColor]::Blue
@@ -14,7 +12,7 @@ $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
 # directory traversing
 $DOCDIR = [Environment]::GetFolderPath("MyDocuments")
-$SCRIPTDIR = "$DOCDIR\Scripts"
+$SCRIPD = "$DOCDIR\Scripts"
 $EXPERIMENTDIR = "$DOCDIR\Experiments"
 
 function Go-To-Documents ($target) {
@@ -35,13 +33,23 @@ function Go-To-Experiment ($exp_no) {
 
 function Go-To-Scripts ($script_name) {
   if($script_name -eq $null) {
-    Set-Location $SCRIPTDIR
+    Set-Location $SCRIPD
   } else {
-    Set-Location $SCRIPTDIR\$script_name*
+    Set-Location $SCRIPD\$script_name*
   }
 }
 
-function Make-Symlink ($path, $name, $target) {New-Item -itemtype symboliclink -path $path -name $name -value $target}
+function Run-Appia () {
+  python $SCRIPD\Appia\appia.py @args
+}
+
+function Make-Symlink ($path, $name, $target) {
+  New-Item -itemtype symboliclink -path $path -name $name -value $target
+}
+
+function notepad () {
+  vim ~/notepad.md
+}
 
 # alias some git unix functions for instinct reasons
 function login-gitbash {& 'C:\Program Files\Git\bin\sh.exe' --login}
@@ -56,9 +64,11 @@ Set-Alias -Name cds -Value Go-To-Scripts
 Set-Alias -Name cdd -Value Go-To-Documents
 Set-Alias -Name cde -Value Go-To-Experiment
 Set-Alias -Name ln -Value Make-Symlink
+Set-Alias -Name appia -Value Run-Appia
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
+  Import-Module posh-git
 }
