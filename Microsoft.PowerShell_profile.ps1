@@ -26,8 +26,10 @@ function Go-To-Documents ($target) {
 function Go-To-Experiment ($exp_no) {
   if($exp_no -eq $null) {
     Set-Location $EXPERIMENTDIR
+  } elseif ([Math]::log10($exp_no) -lt 2) {
+    Set-Location $EXPERIMENTDIR\Experiment0$exp_no*
   } else {
-  Set-Location $EXPERIMENTDIR\Experiment$exp_no*
+    Set-Location $EXPERIMENTDIR\Experiment$exp_no*
   }
 }
 
