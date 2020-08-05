@@ -43,10 +43,12 @@ alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
 alias hen4="ssh -X posert@henry4.ohsu.edu"
 alias hen5="ssh -X posert@henry5.ohsu.edu"
-alias juliet="ssh -x posert@10.137.46.15"
+alias juliet="ssh -X posert@10.137.46.15"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
+alias morpheus="ssh posert@morpheus.ohsu.edu"
+alias askel="ssh posert@askeladden.ohsu.edu"
 export DISPLAY=127.0.0.1:0
 
 # coloration and ls aliases
