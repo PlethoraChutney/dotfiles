@@ -4,16 +4,15 @@
   "atom-latex":
     bibtex: "biber"
     build_after_save: false
-    custom_toolchain: "%TEX %ARG %DOC.%EXT"
     file_ext_to_clean: "*.aux, *.bbl, *.blg, *.idx, *.ind, *.lof, *.lot, *.out, *.toc, *.acn, *.acr, *.alg, *.glg, *.glo, *.gls, *.ist, *.fls, *.log, *.fdb_latexmk, *.bcf, *.xml, *.synctex.gz"
     focus_viewer: true
     hide_log_if_success: true
-    toolchain: "custom toolchain"
   core:
     autoHideMenuBar: true
     closeDeletedFileTabs: true
     disabledPackages: [
       "markdown-preview"
+      "linter"
     ]
     excludeVcsIgnoredPaths: false
     restorePreviousWindowsOnStart: "no"
@@ -33,8 +32,25 @@
   "fuzzy-finder":
     scoringSystem: "fast"
     useRipGrep: true
+  "ide-python":
+    pylsPlugins:
+      flake8:
+        maxLineLength: 90
+      pycodestyle:
+        ignore: [
+          "E121"
+          "E123"
+          "E126"
+          "E226"
+          "E24"
+          "E704"
+          "W503"
+          "E231"
+          "E251"
+          "E127"
+        ]
+        maxLineLength: 90
   "linter-ui-default":
-    showPanel: true
     useBusySignal: false
   minimap: {}
   "spell-check":
@@ -79,6 +95,7 @@
     ]
   "tool-bar":
     position: "Left"
+    visible: false
   welcome:
     showOnStartup: false
 ".latex.tex.text":

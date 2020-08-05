@@ -64,4 +64,5 @@ exp() {
     cd $EXPERIMENTS_DIR/$(ls $EXPERIMENTS_DIR | grep $1)
 }
 
-
+# other aliases
+export vim="nvim"
