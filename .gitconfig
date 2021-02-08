@@ -8,6 +8,6 @@
 	loggo = log --oneline --all --graph
 [user]
 	email = rich@posert.com
-	name = Rich Posert
+	name = Rich
 [core]
 	editor = vim
