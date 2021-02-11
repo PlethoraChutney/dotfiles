@@ -70,8 +70,8 @@ function Make-Symlink ($path, $name, $target) {
   New-Item -itemtype symboliclink -path $path -name $name -value $target
 }
 
-function notepad () {
-  vim ~/notepad.md
+function Run-Elevated-Powershell () {
+  Start-Process PowerShell -Verb RunAs
 }
 
 # alias some git unix functions for instinct reasons
@@ -88,6 +88,7 @@ Set-Alias -Name cdd -Value Go-To-Documents
 Set-Alias -Name cde -Value Go-To-Experiment
 Set-Alias -Name ln -Value Make-Symlink
 Set-Alias -Name appia -Value Run-Appia
+Set-Alias -Name sudo -Value Run-Elevated-Powershell
 Set-Alias -Name appiaenv -Value $SCRIPD\Appia\venv\Scripts\activate.ps1
 
 # Chocolatey profile
