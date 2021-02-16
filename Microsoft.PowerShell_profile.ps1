@@ -11,6 +11,14 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete
 $Host.PrivateData.ProgressForegroundColor = 'Green'
 $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+  Import-Module posh-git
+  # $GitPromptSettings.DefaultPromptPrefix.Text = '$(Get-Date -f "MM-dd HH:mm:ss") '
+}
+
 function prompt {
 
     #Assign Windows Title Text
@@ -23,12 +31,14 @@ function prompt {
     $IsAdmin = (New-Object Security.Principal.WindowsPrincipal ([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 
     #Decorate the CMD Prompt
-    Write-host ($(if ($IsAdmin) { 'Elevated ' } else { '' })) -ForegroundColor Red -NoNewline
-    Write-Host "$($CmdPromptUser.Name.split("\")[1]) " -ForegroundColor Green -NoNewline
-    Write-Host "@ " -ForegroundColor White -NoNewline
-    Write-Host "Powershell " -NoNewline -ForegroundColor Red
-    Write-Host $pwd  -ForegroundColor Blue
-    return "> "
+    $prompt = Write-host ($(if ($IsAdmin) { 'Elevated ' } else { '' })) -ForegroundColor Red -NoNewline
+    $prompt += Write-Host "$($CmdPromptUser.Name.split("\")[1]) " -ForegroundColor Green -NoNewline
+    $prompt += Write-Host "@ " -ForegroundColor White -NoNewline
+    $prompt += Write-Host "Powershell " -NoNewline -ForegroundColor Red
+    $prompt += Write-Host $pwd  -ForegroundColor Blue -NoNewline
+    # $prompt += & $GitPromptScriptBlock
+    $prompt += "> "
+    if ($prompt) { "$prompt" } else { " " }
 } #end prompt function
 
 # directory traversing
@@ -74,6 +84,10 @@ function Run-Elevated-Powershell () {
   Start-Process PowerShell -Verb RunAs
 }
 
+function Force-Remove-Dir ($target_dir) {
+  Remove-Item -Force -Recurse $target_dir
+}
+
 # alias some git unix functions for instinct reasons
 function login-gitbash {& 'C:\Program Files\Git\bin\sh.exe' --login}
 Set-Alias -Name gitbash -Value login-gitbash
@@ -90,10 +104,4 @@ Set-Alias -Name ln -Value Make-Symlink
 Set-Alias -Name appia -Value Run-Appia
 Set-Alias -Name sudo -Value Run-Elevated-Powershell
 Set-Alias -Name appiaenv -Value $SCRIPD\Appia\venv\Scripts\activate.ps1
-
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-  Import-Module posh-git
-}
+Set-Alias -Name rmrf -Value Force-Remove-Dir
