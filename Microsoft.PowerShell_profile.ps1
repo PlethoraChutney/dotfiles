@@ -37,7 +37,7 @@ function prompt {
     $prompt += Write-Host "Powershell " -NoNewline -ForegroundColor Red
     $prompt += Write-Host $pwd  -ForegroundColor Blue -NoNewline
     # $prompt += & $GitPromptScriptBlock
-    $prompt += "> "
+    $prompt += "`n> "
     if ($prompt) { "$prompt" } else { " " }
 } #end prompt function
 
