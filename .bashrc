@@ -47,8 +47,7 @@ alias juliet="ssh -X posert@juliet.ohsu.edu"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias morpheus="ssh posert@morpheus.ohsu.edu"
-alias askel="ssh posert@askeladden.ohsu.edu"
+alias askel="ssh -X posert@10.146.35.12"
 export DISPLAY=127.0.0.1:0
 
 # coloration and ls aliases
