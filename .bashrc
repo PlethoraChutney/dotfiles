@@ -1,10 +1,5 @@
 # .bashrc
 # User specific aliases and functions
-# Make it easier to read PATH variables
-sepcol () {
-	sed 's/:/\n/g' <<< ${1}
-}
-
 # CryoEM Setup
 include () {
     [[ -f ${1} ]] && source ${1}
@@ -48,6 +43,8 @@ alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
 alias askel="ssh -X posert@10.146.35.12"
+
+# wsl display
 export DISPLAY=127.0.0.1:0
 
 # coloration and ls aliases
@@ -56,12 +53,4 @@ alias la="ls -a"
 alias ll="ls -Falh"
 export GREP_OPTIONS='--color=auto'
 
-# traversal aliases
-export EXPERIMENTS_DIR="/mnt/d/Rich/Documents/Experiments/"
-export SCRIPTS_DIR="/mnt/d/Rich/Documents/Scripts"
-exp() {
-    cd $EXPERIMENTS_DIR/$(ls $EXPERIMENTS_DIR | grep $1)
-}
 
-# other aliases
-export vim="nvim"
