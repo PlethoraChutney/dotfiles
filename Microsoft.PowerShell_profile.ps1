@@ -16,7 +16,8 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
   Import-Module posh-git
-  # $GitPromptSettings.DefaultPromptPrefix.Text = '$(Get-Date -f "MM-dd HH:mm:ss") '
+  $GitPromptSettings.DefaultPromptPath.Text = ''
+  $GitPromptSettings.DefaultPromptSuffix = '`n> '
 }
 
 function prompt {
@@ -36,9 +37,7 @@ function prompt {
     $prompt += Write-Host "@ " -ForegroundColor White -NoNewline
     $prompt += Write-Host "Powershell " -NoNewline -ForegroundColor Red
     $prompt += Write-Host $pwd  -ForegroundColor Blue -NoNewline
-    $prompt += Write-Host " " -NoNewLine
-    # $prompt += & $GitPromptScriptBlock
-    $prompt += "`n> "
+    & $GitPromptScriptBlock
     if ($prompt) { "$prompt" } else { " " }
 } #end prompt function
 
