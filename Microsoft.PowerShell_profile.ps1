@@ -16,7 +16,14 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
   Import-Module posh-git
+}
+
+try {
   $GitPromptSettings.DefaultPromptPath.Text = ''
+  $GitPromptSettings.DefaultPromptSuffix = '`n> '
+}
+catch [System.Management.Automation.RuntimeException] {
+  $GitPromptSettings.DefaultPromptPath = ''
   $GitPromptSettings.DefaultPromptSuffix = '`n> '
 }
 
