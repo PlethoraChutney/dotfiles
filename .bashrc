@@ -51,7 +51,7 @@ export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # exacloud logins
-alias troll="ssh -X posert@troll.ohsu.edu"
+alias troll="ssh -Y posert@troll.ohsu.edu"
 alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
 alias hen4="ssh -X posert@henry4.ohsu.edu"
@@ -63,7 +63,8 @@ alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
 alias askel="ssh -X posert@10.146.35.12"
 
 # wsl display
-export DISPLAY=127.0.0.1:0
+export export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
 
 # coloration and ls aliases
 alias ls="ls --color=auto"
