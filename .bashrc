@@ -60,7 +60,7 @@ alias juliet="ssh -X posert@juliet.ohsu.edu"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias askel="ssh -Y posert@10.146.35.12"
+alias askel="ssh -Y posert@askeladden.ohsu.edu"
 
 # wsl display
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
