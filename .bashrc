@@ -61,13 +61,16 @@ alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
 alias askel="ssh -Y posert@askeladden.ohsu.edu"
+alias exacloud="ssh -X posert@exahead1.ohsu.edu"
+alias exa1="ssh -X posert@exahead1.ohsu.edu"
+alias exa2="ssh -X posert@exahead2.ohsu.edu"
 
 # wsl display
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
 
 # has to be different if connected over OHSU VPN
-alias vpndisp="DISPLAY=$(ip addr show eth2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0"
+alias vpndisp="DISPLAY=$(ip addr show eth2 2>/dev/null | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0"
 
 # coloration and ls aliases
 alias ls="ls --color=auto"
