@@ -50,7 +50,7 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# exacloud logins
+# remote logins
 alias troll="ssh -Y posert@troll.ohsu.edu"
 alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
@@ -64,6 +64,11 @@ alias askel="ssh -Y posert@askeladden.ohsu.edu"
 alias exacloud="ssh -X posert@exahead1.ohsu.edu"
 alias exa1="ssh -X posert@exahead1.ohsu.edu"
 alias exa2="ssh -X posert@exahead2.ohsu.edu"
+
+# relion download
+getrel () {
+	scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1 ./$2
+}
 
 # wsl display
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
