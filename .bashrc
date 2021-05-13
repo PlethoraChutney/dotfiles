@@ -83,7 +83,7 @@ export LIBGL_ALWAYS_INDIRECT=1
 vpndisp () {
 	ETH2=$(ip addr show eth2)
 	if [ $? -eq 0 ]; then
-		DISPLAY=$($ETH2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
+		DISPLAY=$(echo $ETH2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
 	fi
 }
 
