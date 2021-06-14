@@ -89,9 +89,9 @@ export LIBGL_ALWAYS_INDIRECT=1
 
 # has to be different if connected over OHSU VPN
 vpndisp () {
-	ETH2=$(ip addr show eth2)
+	ip addr show eth2 &>/dev/null
 	if [ $? -eq 0 ]; then
-		DISPLAY=$(echo $ETH2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
+		DISPLAY=$(ip addr show eth2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
 	fi
 }
 
