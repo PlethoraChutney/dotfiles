@@ -78,8 +78,20 @@ include () {
 	[[ -f ${1} ]] && source ${1}
 }
 
-# #####################################################
-# Askeladden-specific
-# #####################################################
-#
-include /sw/sw.zshrc
+
+# remote logins
+alias troll="ssh -Y posert@troll.ohsu.edu"
+alias hotspur="ssh -X posert@hotspur.ohsu.edu"
+alias falstaff="ssh -X posert@falstaff.ohsu.edu"
+alias hen4="ssh -X posert@henry4.ohsu.edu"
+alias hen5="ssh -X posert@henry5.ohsu.edu"
+alias juliet="ssh -X posert@juliet.ohsu.edu"
+alias exahead="ssh -X posert@exahead1.ohsu.edu"
+alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
+alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
+alias askel="ssh -Y posert@10.137.46.15"
+alias laskel='ssh -Y local@10.137.46.15'
+alias exa1="ssh -Y posert@exahead1.ohsu.edu"
+alias exa2="ssh -Y posert@exahead2.ohsu.edu"
+alias exacloud='exa1'
+
