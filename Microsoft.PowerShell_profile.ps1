@@ -95,8 +95,7 @@ function Force-Remove-Dir ($target_dir) {
   Remove-Item -Force -Recurse $target_dir
 }
 
-# alias some git unix functions for instinct reasons
-function login-gitbash {& 'C:\Program Files\Git\bin\sh.exe' --login}
+# alias some git unix functions
 Set-Alias -Name gitbash -Value login-gitbash
 Set-Alias -Name vim -Value 'C:\Program Files\Git\usr\bin\vim.exe'
 Set-Alias -Name grep -Value 'C:\Program Files\Git\usr\bin\grep.exe'
