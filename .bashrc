@@ -1,6 +1,24 @@
-# .bashrc
-# User specific aliases and functions
-# CryoEM Setup
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 include () {
     [[ -f ${1} ]] && source ${1}
 }
@@ -32,8 +50,8 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-# exacloud logins
-alias troll="ssh -X posert@troll.ohsu.edu"
+# remote logins
+alias troll="ssh -Y posert@troll.ohsu.edu"
 alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
 alias hen4="ssh -X posert@henry4.ohsu.edu"
@@ -42,17 +60,46 @@ alias juliet="ssh -X posert@juliet.ohsu.edu"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias askel="ssh -X posert@10.146.35.12"
+alias askel="ssh -Y posert@10.137.46.15"
+alias exacloud="ssh -Y posert@exahead1.ohsu.edu"
+alias exa1="ssh -Y posert@exahead1.ohsu.edu"
+alias exa2="ssh -Y posert@exahead2.ohsu.edu"
+
+# relion download
+getrel () {
+	scp posert@10.137.46.15:/askeladden/scratch/posert/$1 ./$2
+}
+
+putrel () {
+	scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
+}
+
+# exacloud download
+getcis () {
+	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/cistem-project/Assets/Volumes/$2 $3
+}
+
+getexa () {
+	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
+}
 
 # wsl display
-export DISPLAY=127.0.0.1:0
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
+
+# has to be different if connected over OHSU VPN
+vpndisp () {
+	ip addr show eth2 &>/dev/null
+	if [ $? -eq 0 ]; then
+		DISPLAY=$(ip addr show eth2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
+	fi
+}
 
 # coloration and ls aliases
 alias ls="ls --color=auto"
 alias la="ls -a"
 alias ll="ls -Falh"
-export GREP_OPTIONS='--color=auto'
-
+alias grep="grep --color=auto"
 
 
 export NVM_DIR="$HOME/.nvm"
