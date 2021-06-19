@@ -78,9 +78,17 @@ putrel () {
 	scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
 }
 
+putrel () {
+	scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
+}
+
 # exacloud download
 getcis () {
-	scp posert@exahead1.ohsu.edu:/home/groups/BaconguisLab/posert/$1/cistem-project/Assets/Volumes/$2 $3
+	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/cistem-project/Assets/Volumes/$2 $3
+}
+
+getexa () {
+	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
 }
 
 # wsl display
