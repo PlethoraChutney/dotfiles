@@ -13,6 +13,7 @@ setopt nomatch
 setopt AUTO_CD
 unsetopt autocd beep extendedglob
 bindkey -v
+bindkey '^R' history-incremental-search-backward
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/posert/.zshrc'

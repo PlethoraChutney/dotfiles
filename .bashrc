@@ -50,46 +50,91 @@ export HISTTIMEFORMAT="[%F %T] "
 export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
+##### OHSU Login and Navigation ######
+OHSUSER="posert"
 # remote logins
-alias troll="ssh -Y posert@troll.ohsu.edu"
-alias hotspur="ssh -X posert@hotspur.ohsu.edu"
-alias falstaff="ssh -X posert@falstaff.ohsu.edu"
-alias hen4="ssh -X posert@henry4.ohsu.edu"
-alias hen5="ssh -X posert@henry5.ohsu.edu"
-alias juliet="ssh -X posert@juliet.ohsu.edu"
-alias exahead="ssh -X posert@exahead1.ohsu.edu"
+alias troll="ssh -Y $OHSUSER@troll.ohsu.edu"
+alias hotspur="ssh -X $OHSUSER@hotspur.ohsu.edu"
+alias falstaff="ssh -X $OHSUSER@falstaff.ohsu.edu"
+alias hen4="ssh -X $OHSUSER@henry4.ohsu.edu"
+alias hen5="ssh -X $OHSUSER@henry5.ohsu.edu"
+alias juliet="ssh -X $OHSUSER@juliet.ohsu.edu"
+alias exahead="ssh -X $OHSUSER@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias askel="ssh -Y posert@10.137.46.15"
-alias exacloud="ssh -Y posert@exahead1.ohsu.edu"
-alias exa1="ssh -Y posert@exahead1.ohsu.edu"
-alias exa2="ssh -Y posert@exahead2.ohsu.edu"
+alias askel="ssh -Y $OHSUSER@askeladden.ohsu.edu"
+alias exacloud="ssh -Y $OHSUSER@exahead1.ohsu.edu"
+alias exa1="ssh -Y $OHSUSER@exahead1.ohsu.edu"
+alias exa2="ssh -Y $OHSUSER@exahead2.ohsu.edu"
+
 
 # relion download
 getrel () {
-	scp posert@10.137.46.15:/askeladden/scratch/posert/$1 $2
+	scp $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$1 $2
 }
 
 getex () {
-	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
+	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1 $2
 }
 
 putrel () {
-	scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
+	scp $1 $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$2
 }
 
 putrel () {
-	scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
+	scp $1 $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$2
 }
 
 # exacloud download
 getcis () {
-	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/cistem-project/Assets/Volumes/$2 $3
+	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1/cistem-project/Assets/Volumes/$2 $3
 }
 
 getexa () {
-	scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
+	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1 $2
 }
+
+cds () {
+  if [ $# -eq 0 ]
+    then
+      cd /$(hostname)/scratch/$OHSUSER/
+    else
+      cd /$(hostname)/scratch/$OHSUSER/${1}*
+  fi
+}
+
+cdst () {
+  if [ $# -eq 0 ]
+    then
+      cd /$(hostname)/scratch/$OHSUSER/
+    else
+      cd /$(hostname)/scratch/$OHSUSER/${1}*
+  fi
+}
+
+cdgp () {
+  if [ $# -eq 0 ]
+    then
+      cd /goliath/processing/BaconguisLab/$OHSUSER/
+    else
+      cd /goliath/processing/BaconguisLab/$HOSUSER/${1}*
+  fi
+}
+
+
+
+cdgr () {
+  if [ $# -eq 0 ]
+    then
+      cd /goliath/rawdata/BaconguisLab/$OHSUSER/
+    else
+      cd /goliath/rawdata/BaconguisLab/$HOSUSER/${1}*
+  fi
+}
+
+###### Host-Specific ######
+include ~/.${hostname}rc
+
 
 # wsl display
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
