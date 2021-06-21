@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
