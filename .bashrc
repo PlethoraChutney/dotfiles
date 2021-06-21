@@ -51,73 +51,72 @@ export HISTFILE=~/.bash_eternal_history
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 ##### OHSU Login and Navigation ######
-OHSUSER="posert"
 # remote logins
-alias troll="ssh -Y $OHSUSER@troll.ohsu.edu"
-alias hotspur="ssh -X $OHSUSER@hotspur.ohsu.edu"
-alias falstaff="ssh -X $OHSUSER@falstaff.ohsu.edu"
-alias hen4="ssh -X $OHSUSER@henry4.ohsu.edu"
-alias hen5="ssh -X $OHSUSER@henry5.ohsu.edu"
-alias juliet="ssh -X $OHSUSER@juliet.ohsu.edu"
-alias exahead="ssh -X $OHSUSER@exahead1.ohsu.edu"
+alias troll="ssh -Y $(whoami)@troll.ohsu.edu"
+alias hotspur="ssh -X $(whoami)@hotspur.ohsu.edu"
+alias falstaff="ssh -X $(whoami)@falstaff.ohsu.edu"
+alias hen4="ssh -X $(whoami)@henry4.ohsu.edu"
+alias hen5="ssh -X $(whoami)@henry5.ohsu.edu"
+alias juliet="ssh -X $(whoami)@juliet.ohsu.edu"
+alias exahead="ssh -X $(whoami)@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias askel="ssh -Y $OHSUSER@askeladden.ohsu.edu"
-alias exacloud="ssh -Y $OHSUSER@exahead1.ohsu.edu"
-alias exa1="ssh -Y $OHSUSER@exahead1.ohsu.edu"
-alias exa2="ssh -Y $OHSUSER@exahead2.ohsu.edu"
+alias askel="ssh -Y $(whoami)@askeladden.ohsu.edu"
+alias exacloud="ssh -Y $(whoami)@exahead1.ohsu.edu"
+alias exa1="ssh -Y $(whoami)@exahead1.ohsu.edu"
+alias exa2="ssh -Y $(whoami)@exahead2.ohsu.edu"
 
 
 # relion download
 getrel () {
-	scp $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$1 $2
+	scp $(whoami)@10.137.46.15:/askeladden/scratch/$(whoami)/$1 $2
 }
 
 getex () {
-	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1 $2
+	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1 $2
 }
 
 putrel () {
-	scp $1 $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$2
+	scp $1 $(whoami)@10.137.46.15:/askeladden/scratch/$(whoami)/$2
 }
 
 putrel () {
-	scp $1 $OHSUSER@10.137.46.15:/askeladden/scratch/$OHSUSER/$2
+	scp $1 $(whoami)@10.137.46.15:/askeladden/scratch/$(whoami)/$2
 }
 
 # exacloud download
 getcis () {
-	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1/cistem-project/Assets/Volumes/$2 $3
+	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1/cistem-project/Assets/Volumes/$2 $3
 }
 
 getexa () {
-	scp $OHSUSER@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$OHSUSER/$1 $2
+	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1 $2
 }
 
 cds () {
   if [ $# -eq 0 ]
     then
-      cd /$(hostname)/scratch/$OHSUSER/
+      cd /$(hostname)/scratch/$(whoami)/
     else
-      cd /$(hostname)/scratch/$OHSUSER/${1}*
+      cd /$(hostname)/scratch/$(whoami)/${1}*
   fi
 }
 
 cdst () {
   if [ $# -eq 0 ]
     then
-      cd /$(hostname)/scratch/$OHSUSER/
+      cd /$(hostname)/scratch/$(whoami)/
     else
-      cd /$(hostname)/scratch/$OHSUSER/${1}*
+      cd /$(hostname)/scratch/$(whoami)/${1}*
   fi
 }
 
 cdgp () {
   if [ $# -eq 0 ]
     then
-      cd /goliath/processing/BaconguisLab/$OHSUSER/
+      cd /goliath/processing/BaconguisLab/$(whoami)/
     else
-      cd /goliath/processing/BaconguisLab/$HOSUSER/${1}*
+      cd /goliath/processing/BaconguisLab/$(whoami)/${1}*
   fi
 }
 
@@ -126,9 +125,9 @@ cdgp () {
 cdgr () {
   if [ $# -eq 0 ]
     then
-      cd /goliath/rawdata/BaconguisLab/$OHSUSER/
+      cd /goliath/rawdata/BaconguisLab/$(whoami)/
     else
-      cd /goliath/rawdata/BaconguisLab/$HOSUSER/${1}*
+      cd /goliath/rawdata/BaconguisLab/$(whoami)/${1}*
   fi
 }
 
