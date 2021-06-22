@@ -1,0 +1,11 @@
+# wsl display
+export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
+export LIBGL_ALWAYS_INDIRECT=1
+
+# has to be different if connected over OHSU VPN
+vpndisp () {
+	ip addr show eth2 &>/dev/null
+	if [ $? -eq 0 ]; then
+		DISPLAY=$(ip addr show eth2 | grep inet\ | awk '{gsub("/.*", "", $2)}; {print $2}'):0
+	fi
+}
