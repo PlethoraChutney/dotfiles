@@ -38,6 +38,10 @@ alias ll='ls -AlFh'
 
 alias grep='grep --color=auto'
 
+include () {
+  [[ -f ${1} ]] && source ${1}
+}
+
 # directory traversal
 
 # prompt
@@ -71,6 +75,8 @@ getex () {
 putrel () {
         scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
 }
+
+include ~/.$(hostname)zc
 
 # exacloud download
 getcis () {

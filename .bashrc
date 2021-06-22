@@ -132,7 +132,7 @@ cdgr () {
 }
 
 ###### Host-Specific ######
-include ~/.${hostname}rc
+include ~/.$(hostname)rc
 
 
 # wsl display
