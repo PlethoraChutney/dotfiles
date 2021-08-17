@@ -57,8 +57,8 @@ alias juliet="ssh -X posert@juliet.ohsu.edu"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
 alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
 alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
-alias askel="ssh -Y posert@10.137.46.15"
-alias laskel="ssh -Y local@10.137.46.15"
+alias askel="ssh -Y posert@askeladden.ohsu.edu"
+alias laskel="ssh -Y local@askeladden.ohsu.edu"
 alias exa1="ssh -Y posert@exahead1.ohsu.edu"
 alias exa2="ssh -Y posert@exahead2.ohsu.edu"
 alias exacloud='exa1'
@@ -70,6 +70,10 @@ getrel () {
 
 getex () {
         scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
+}
+
+putex () {
+	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
 }
 
 putrel () {
