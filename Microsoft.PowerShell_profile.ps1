@@ -95,6 +95,10 @@ function Force-Remove-Dir ($target_dir) {
   Remove-Item -Force -Recurse $target_dir
 }
 
+function mcd ($target) {
+  (mkdir $target) -and (cd $target)
+}
+
 # alias some git unix functions
 Set-Alias -Name gitbash -Value login-gitbash
 Set-Alias -Name vim -Value 'C:\Program Files\Git\usr\bin\vim.exe'
