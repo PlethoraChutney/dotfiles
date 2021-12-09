@@ -89,10 +89,6 @@ getcis () {
 	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1/cistem-project/Assets/Volumes/$2 $3
 }
 
-getexa () {
-	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1 $2
-}
-
 cds () {
   if [ $# -eq 0 ]
     then

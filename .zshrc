@@ -63,9 +63,13 @@ alias exa1="ssh -Y posert@exahead1.ohsu.edu"
 alias exa2="ssh -Y posert@exahead2.ohsu.edu"
 alias exacloud='exa1'
 
+mcd () {
+	mkdir $1 && cd $1
+}
+
 # scp aliases
 getrel () {
-        scp posert@10.137.46.15:/askeladden/scratch/posert/$1 $2
+        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1 $2
 }
 
 getex () {
@@ -77,7 +81,7 @@ putex () {
 }
 
 putrel () {
-        scp $1 posert@10.137.46.15:/askeladden/scratch/posert/$2
+        scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
 }
 
 include ~/.$(hostname)zc
