@@ -84,6 +84,17 @@ putrel () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
 }
 
+get_all_classes () {
+	if [ -z "$2" ]
+		then
+			CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$(whoami)/cryosparc"
+    		else
+      			CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$2/cryosparc"
+  	fi
+  
+	rsync -avzP $(whoami)$CRYOSPARC_PROCESSING/$1/\*volume.mrc ./
+}
+
 include ~/.$(hostname)zc
 
 # exacloud download
