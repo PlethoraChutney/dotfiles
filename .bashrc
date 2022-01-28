@@ -89,10 +89,6 @@ getcis () {
 	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1/cistem-project/Assets/Volumes/$2 $3
 }
 
-getexa () {
-	scp $(whoami)@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/$(whoami)/$1 $2
-}
-
 cds () {
   if [ $# -eq 0 ]
     then
@@ -129,6 +125,17 @@ cdgr () {
     else
       cd /goliath/rawdata/BaconguisLab/$(whoami)/${1}*
   fi
+}
+
+get_all_classes () {
+	if [ -z "$2" ]
+		then
+			CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$(whoami)/cryosparc"
+	else
+		CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$2/cryosparc"
+	fi
+	
+	rsync -avzP "$(whoami)$CRYOSPARC_PROCESSING/$1/*volume.mrc" ./
 }
 
 ###### Host-Specific ######
