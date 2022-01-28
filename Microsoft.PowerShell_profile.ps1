@@ -11,12 +11,7 @@ Set-PSReadlineKeyHandler -Key Tab -Function Complete
 $Host.PrivateData.ProgressForegroundColor = 'Green'
 $Host.PrivateData.ProgressBackgroundColor = 'Black'
 
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-  Import-Module posh-git
-}
+Import-Module posh-git
 
 try {
   $GitPromptSettings.DefaultPromptPath.Text = ''
