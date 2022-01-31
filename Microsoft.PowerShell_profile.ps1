@@ -70,7 +70,7 @@ function Go-To-Scripts ($script_name) {
   if($script_name -eq $null) {
     Set-Location $SCRIPD
   } else {
-    Set-Location $SCRIPD\$script_name*
+    Set-Location @(Get-ChildItem $SCRIPD\$script_name*)[0]
   }
 }
 
@@ -86,12 +86,8 @@ function Run-Elevated-Powershell () {
   Start-Process PowerShell -Verb RunAs
 }
 
-function Force-Remove-Dir ($target_dir) {
-  Remove-Item -Force -Recurse $target_dir
-}
-
 function mcd ($target) {
-  (mkdir $target) -and (cd $target)
+  (mkdir $target) -and (cd $target) | Out-Null
 }
 
 # alias some git unix functions
@@ -109,4 +105,3 @@ Set-Alias -Name ln -Value Make-Symlink
 Set-Alias -Name appia -Value Run-Appia
 Set-Alias -Name sudo -Value Run-Elevated-Powershell
 Set-Alias -Name appiaenv -Value $SCRIPD\Appia\venv\Scripts\activate.ps1
-Set-Alias -Name rmrf -Value Force-Remove-Dir
