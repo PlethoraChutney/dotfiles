@@ -59,8 +59,7 @@ alias hen4="ssh -X $(whoami)@henry4.ohsu.edu"
 alias hen5="ssh -X $(whoami)@henry5.ohsu.edu"
 alias juliet="ssh -X $(whoami)@juliet.ohsu.edu"
 alias exahead="ssh -X $(whoami)@exahead1.ohsu.edu"
-alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
-alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
+alias boreal="ssh -X pose732@boreal.emsl.pnl.gov"
 alias askel="ssh -Y $(whoami)@askeladden.ohsu.edu"
 alias exacloud="ssh -Y $(whoami)@exahead1.ohsu.edu"
 alias exa1="ssh -Y $(whoami)@exahead1.ohsu.edu"
@@ -68,6 +67,11 @@ alias exa2="ssh -Y $(whoami)@exahead2.ohsu.edu"
 
 
 # relion download
+
+getboreal () {
+	scp pose732@boreal.emsl.pnl.gov:$1 $2
+}
+
 getrel () {
 	scp $(whoami)@10.137.46.15:/askeladden/scratch/$(whoami)/$1 $2
 }
