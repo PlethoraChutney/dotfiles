@@ -65,7 +65,8 @@
         {
             "antialiasingMode": "cleartype",
             "bellStyle": "none",
-            "colorScheme": "Serendipity Morning",
+            "colorScheme": "Serendipity Midnight",
+            "cursorShape": "filledBox",
             "font": 
             {
                 "face": "JetBrains Mono",
@@ -259,7 +260,7 @@
             "brightRed": "#EE8679",
             "brightWhite": "#DEE0EF",
             "brightYellow": "#F8D2C9",
-            "cursorColor": "#575279",
+            "cursorColor": "#A99FEB",
             "cyan": "#94B8FF",
             "foreground": "#DEE0EF",
             "green": "#9CCFD8",
