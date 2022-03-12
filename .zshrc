@@ -55,8 +55,7 @@ alias hen4="ssh -X posert@henry4.ohsu.edu"
 alias hen5="ssh -X posert@henry5.ohsu.edu"
 alias juliet="ssh -X posert@juliet.ohsu.edu"
 alias exahead="ssh -X posert@exahead1.ohsu.edu"
-alias cascade="ssh -X pose732@cascade.emsl.pnl.gov"
-alias vcascade="ssh -vX pose732@cascade.emsl.pnl.gov"
+alias boreal="ssh -X pose732@boreal.emsl.pnl.gov"
 alias askel="ssh -Y posert@askeladden.ohsu.edu"
 alias laskel="ssh -Y local@askeladden.ohsu.edu"
 alias exa1="ssh -Y posert@exahead1.ohsu.edu"
@@ -69,6 +68,15 @@ mcd () {
 }
 
 # scp aliases
+
+getboreal () {
+	scp pose732@boreal.emsl.pnl.gov:$1 $2
+}
+
+putboreal () {
+	scp $1 pose732@boreal.emsl.pnl.gov:$2
+}
+
 getrel () {
         scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1 $2
 }
