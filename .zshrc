@@ -69,11 +69,11 @@ mcd () {
 # scp aliases
 
 getboreal () {
-	scp pose732@boreal.emsl.pnl.gov:$1 $2
+	scp pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$1/\*/job$2 $3
 }
 
 putboreal () {
-	scp $1 pose732@boreal.emsl.pnl.gov:$2
+	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
 }
 
 getrel () {
@@ -81,7 +81,7 @@ getrel () {
 }
 
 getex () {
-        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1 $2
+        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/\*/job$2 $3
 }
 
 putex () {
