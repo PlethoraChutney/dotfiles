@@ -102,6 +102,6 @@ Set-Alias -Name cds -Value Go-To-Scripts
 Set-Alias -Name cdd -Value Go-To-Documents
 Set-Alias -Name cde -Value Go-To-Experiment
 Set-Alias -Name ln -Value Make-Symlink
-Set-Alias -Name appia -Value Run-Appia
+# Set-Alias -Name appia -Value Run-Appia
 Set-Alias -Name sudo -Value Run-Elevated-Powershell
 Set-Alias -Name appiaenv -Value $SCRIPD\Appia\venv\Scripts\activate.ps1
