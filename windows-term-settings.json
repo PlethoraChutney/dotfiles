@@ -1,10 +1,15 @@
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "actions": 
     [
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "right"
+            },
+            "keys": "alt+shift+d"
         },
         {
             "command": 
@@ -15,12 +20,8 @@
             "keys": "alt+shift+a"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "right"
-            },
-            "keys": "alt+shift+d"
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": 
@@ -44,16 +45,16 @@
             "keys": "alt+shift+s"
         },
         {
+            "command": "openTabRenamer",
+            "keys": "alt+shift+r"
+        },
+        {
             "command": 
             {
                 "action": "moveFocus",
                 "direction": "up"
             },
             "keys": "alt+shift+w"
-        },
-        {
-            "command": "openTabRenamer",
-            "keys": "alt+shift+r"
         }
     ],
     "copyFormatting": "none",
@@ -88,7 +89,6 @@
                 "name": "Windows PowerShell"
             },
             {
-                "commandline": "cmd.exe",
                 "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
                 "hidden": false,
                 "name": "Command Prompt"
@@ -128,6 +128,12 @@
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS / MSYS2",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
+            },
+            {
+                "guid": "{04f22b45-1c26-58d2-8896-cd56b4f9a99a}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2017",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
