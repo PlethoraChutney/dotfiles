@@ -89,8 +89,12 @@ putex () {
 	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
 }
 
-putrel () {
+putask () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
+}
+
+getask () {
+	scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1/\*/job$2 $3
 }
 
 get_all_classes () {
