@@ -10,14 +10,34 @@
                 "direction": "up"
             },
             "keys": "alt+shift+w"
+	},
+	{
+	    "command":
+	    {
+                "action": "moveFocus",
+		"direction": "right"
+	    },
+            "keys": "alt+shift+d"
+        },
+	{
+	    "command":
+	    {
+                "action": "moveFocus",
+		"direction": "down"
+	    },
+            "keys": "alt+shift+w"
         },
         {
             "command": 
             {
                 "action": "moveFocus",
-                "direction": "right"
+                "direction": "left"
             },
-            "keys": "alt+shift+d"
+            "keys": "alt+shift+a"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         },
         {
             "command": "find",
@@ -55,6 +75,17 @@
         {
             "command": "openTabRenamer",
             "keys": "alt+shift+r"
+<<<<<<< HEAD
+=======
+        },
+        {
+            "command": 
+            {
+                "action": "moveFocus",
+                "direction": "up"
+            },
+            "keys": "alt+shift+w"
+>>>>>>> bd098abb02b23c4be2fc0a316ef5d07a1706280d
         }
     ],
     "copyFormatting": "none",
@@ -128,6 +159,12 @@
                 "icon": "C:/msys64/msys2.ico",
                 "name": "MSYS / MSYS2",
                 "startingDirectory": "C:/msys64/home/%USERNAME%"
+            },
+            {
+                "guid": "{04f22b45-1c26-58d2-8896-cd56b4f9a99a}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2017",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
