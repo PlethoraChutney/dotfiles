@@ -10,22 +10,22 @@
                 "direction": "up"
             },
             "keys": "alt+shift+w"
-	},
-	{
-	    "command":
-	    {
+        },
+        {
+            "command":
+            {
                 "action": "moveFocus",
-		"direction": "right"
-	    },
+		        "direction": "right"
+	        },
             "keys": "alt+shift+d"
         },
-	{
-	    "command":
 	    {
-                "action": "moveFocus",
-		"direction": "down"
-	    },
-            "keys": "alt+shift+w"
+	    "command":
+	        {
+            "action": "moveFocus",
+		    "direction": "down"
+	        },
+            "keys": "alt+shift+s"
         },
         {
             "command": 
@@ -65,27 +65,8 @@
             "keys": "alt+shift+z"
         },
         {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "down"
-            },
-            "keys": "alt+shift+s"
-        },
-        {
             "command": "openTabRenamer",
             "keys": "alt+shift+r"
-<<<<<<< HEAD
-=======
-        },
-        {
-            "command": 
-            {
-                "action": "moveFocus",
-                "direction": "up"
-            },
-            "keys": "alt+shift+w"
->>>>>>> bd098abb02b23c4be2fc0a316ef5d07a1706280d
         }
     ],
     "copyFormatting": "none",
