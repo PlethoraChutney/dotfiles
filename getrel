@@ -1,11 +1,16 @@
 #!/bin/bash
 
+if [ "$#" -ne 4 ]; then
+    echo Usage:
+    echo getrel {username} {hostname} {project name} {job number}
+    exit
+fi
 
 # set up variables
-USER=$(whoami)
-HOST=$1
-PROJECT=$2
-JOB_NUMBER=$3
+USER=$1
+HOST=$2
+PROJECT=$3
+JOB_NUMBER=$4
 RELPATH=/home/exacloud/gscratch/BaconguisLab/$USER/$PROJECT
 
 # left-pad and add "job" to input, if job is given simply as a number
@@ -31,6 +36,7 @@ get_three_class() {
     if [ -z $FINAL_ITER ]
         then
         echo Could not find 3D classification final iteration...
+        exit
     else
         mkdir $PROJECT-$JOB_NUMBER
         pushd $PROJECT-$JOB_NUMBER

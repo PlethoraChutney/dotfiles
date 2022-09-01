@@ -67,19 +67,21 @@ mcd () {
 	mkdir $1 && cd $1
 }
 
+PATH=$PATH:$HOME/scripts
+
 # scp aliases
 
 putboreal () {
 	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
 }
 
-alias getex="getrel exahead1.ohsu.edu"
+alias getex="getrel posert exahead1.ohsu.edu"
 
 putex () {
 	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
 }
 
-alias getask="getrel askeladden.ohsu.edu"
+alias getask="getrel posert askeladden.ohsu.edu"
 
 putask () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
