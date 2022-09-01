@@ -75,13 +75,13 @@ putboreal () {
 	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
 }
 
-alias getex="getrel posert exahead1.ohsu.edu"
+alias getex="getrel posert@exahead1.ohsu.edu /home/exacloud/gscratch/BaconguisLab/posert"
 
 putex () {
 	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
 }
 
-alias getask="getrel posert askeladden.ohsu.edu"
+alias getask="getrel posert@askeladden.ohsu.edu /goliath/processing/BaconguisLab/posert"
 
 putask () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2

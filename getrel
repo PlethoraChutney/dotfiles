@@ -2,16 +2,16 @@
 
 if [ "$#" -ne 4 ]; then
     echo Usage:
-    echo getrel {username} {hostname} {project name} {job number}
+    echo getrel {username}{@{hostname} {scratch_dir} {project name} {job number}
     exit
 fi
 
 # set up variables
-USER=$1
-HOST=$2
+USERATHOST=$1
+SC_DIR=$2
 PROJECT=$3
+RELPATH=$2/$PROJECT
 JOB_NUMBER=$4
-RELPATH=/home/exacloud/gscratch/BaconguisLab/$USER/$PROJECT
 
 # left-pad and add "job" to input, if job is given simply as a number
 if ! grep -qs "job" $JOB_NUMBER
@@ -25,13 +25,13 @@ fi
 get_refinement() {
     OUT_PATH=$PROJECT"_"map-$JOB_NUMBER.mrc
 
-    scp $USER@$HOST:$JOB_PATH/run_class001.mrc $OUT_PATH 2>/dev/null
+    scp $USERATHOST:$JOB_PATH/run_class001.mrc $OUT_PATH 2>/dev/null
 }
 
 get_three_class() {
     FINAL_ITER_COMM="ls $JOB_PATH/*.mrc | sed -nr 's/.*run_it([0-9]{3}).*/\1/p' | tail -n 1"
 
-    FINAL_ITER=$(ssh $USER@$HOST -t $FINAL_ITER_COMM 2>/dev/null | sed "s/\r//g")
+    FINAL_ITER=$(ssh $USERATHOST -t $FINAL_ITER_COMM 2>/dev/null | sed "s/\r//g")
 
     if [ -z $FINAL_ITER ]
         then
@@ -41,7 +41,7 @@ get_three_class() {
         mkdir $PROJECT-$JOB_NUMBER
         pushd $PROJECT-$JOB_NUMBER
         MAPS_PATH=$JOB_PATH/run_it$FINAL_ITER"_"class*.mrc
-        scp $USER@$HOST:$MAPS_PATH .
+        scp $USERATHOST:$MAPS_PATH .
         popd
     fi
 }
@@ -49,22 +49,22 @@ get_three_class() {
 get_mask() {
     OUT_PATH=$PROJECT"_"mask-$JOB_NUMBER.mrc
 
-    scp $USER@$HOST:$JOB_PATH/mask.mrc $OUT_PATH 2>/dev/null
+    scp $USERATHOST:$JOB_PATH/mask.mrc $OUT_PATH 2>/dev/null
 }
 
 get_postprocess() {
     OUT_PATH=$PROJECT"_"postprocess-$JOB_NUMBER.mrc
-    scp $USER@$HOST:$JOB_PATH/postprocess.mrc $OUT_PATH 2>/dev/null
+    scp $USERATHOST:$JOB_PATH/postprocess.mrc $OUT_PATH 2>/dev/null
 }
 
 # open the persistent SSH connection
-ssh $USER@$HOST &>/dev/null &
+ssh $USERATHOST &>/dev/null &
 
 # job find string
 JOB_FIND="find $RELPATH -mindepth 1 -maxdepth 2 -name $JOB_NUMBER"
 
 # find the job
-JOB_PATH=$(ssh $USER@$HOST -t $JOB_FIND 2>/dev/null | sed 's/\r//g' | grep $JOB_NUMBER)
+JOB_PATH=$(ssh $USERATHOST -t $JOB_FIND 2>/dev/null | sed 's/\r//g' | grep $JOB_NUMBER)
 
 if grep Refine3D <<< $JOB_PATH
     then
