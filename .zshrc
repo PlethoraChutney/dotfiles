@@ -69,71 +69,20 @@ mcd () {
 
 # scp aliases
 
-getboreal () {
-	scp pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$1/\*/job$2 $3
-}
-
 putboreal () {
 	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
 }
 
-getrel () {
-        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1 $2
-}
-
-getex () {
-    if [[ $2 = ref3d ]]
-    then
-        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/Refine3D/job$3/run_class001.mrc ./$1_$3.mrc
-    elif [[ $2 = mask ]]
-    then
-        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/\*/job$3/mask.mrc ./$1_$3-mask.mrc
-    elif [[ $2 = class3d ]]
-    then
-        mkdir $1_$3
-        pushd $1_$3
-        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/\*/job$3/run_it025_class\*.mrc .
-        popd
-    else
-        scp posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$1/\*/job$2 $3
-    fi
-}
+alias getex="getrel exahead1.ohsu.edu"
 
 putex () {
 	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
 }
 
+alias getask="getrel askeladden.ohsu.edu"
+
 putask () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
-}
-
-getask () {
-    if [[ $2 = ref3d ]]
-    then
-        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1/Refine3D/job$3/run_class001.mrc ./$1_$3.mrc
-    elif [[ $2 = mask ]]
-    then
-        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1/\*/job$3/mask.mrc ./$1_$3-mask.mrc
-    elif [[ $2 = class3d ]]
-    then
-        mkdir $1_$3
-        pushd $1_$3
-        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1/\*/job$3/run_it025_class\*.mrc .
-        popd
-    else
-        scp posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$1/\*/job$2 $3
-    fi
-}
-
-get_all_classes () {
-	if [ -z "$2" ]
-		then
-			CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$(whoami)/cryosparc"
-    		else
-      			CRYOSPARC_PROCESSING="@goliath.ohsu.edu:/goliath/processing/BaconguisLab/$2/cryosparc"
-  	fi
-  
-	rsync -avzP $(whoami)$CRYOSPARC_PROCESSING/$1/\*volume.mrc ./
 }
 
 include ~/.$(hostname)zc
