@@ -61,7 +61,7 @@ alias laskel="ssh -Y local@askeladden.ohsu.edu"
 alias exa1="ssh -Y posert@exahead1.ohsu.edu"
 alias exa2="ssh -Y posert@exahead2.ohsu.edu"
 alias exacloud='exa1'
-alias raspi="ssh rich@192.168.0.202"
+alias raspi="ssh rich@192.168.0.201"
 
 mcd () {
 	mkdir $1 && cd $1
