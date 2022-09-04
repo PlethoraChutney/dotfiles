@@ -1,36 +1,3 @@
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=10000000
-setopt SHARE_HISTORY
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_REDUCE_BLANKS
-setopt CORRECT_ALL
-
-setopt nomatch
-setopt AUTO_CD
-unsetopt autocd beep extendedglob
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/posert/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-#
-# Case insensitive globbing
-unsetopt CASE_GLOB
-#
-# Don't fully expand globs in commands
-setopt GLOB_COMPLETE
-#
-# Offer corrections for typos
-setopt CORRECT_ALL
-#
 # common aliases
 alias ls='ls --color=auto'
 alias la='ls -a'
@@ -42,13 +9,9 @@ include () {
   [[ -f ${1} ]] && source ${1}
 }
 
-# directory traversal
-
-# prompt
-PROMPT='%F{186}%n%f @ %F{214}%m%f %F{33}%~%f'$'\n''%# '
-
 # ssh commands
 alias troll="ssh -Y posert@troll.ohsu.edu"
+alias cryosparc="ssh -L 11312:localhost:39000 posert@troll.ohsu.edu"
 alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
 alias hen4="ssh -X posert@henry4.ohsu.edu"
@@ -63,8 +26,20 @@ alias exa2="ssh -Y posert@exahead2.ohsu.edu"
 alias exacloud='exa1'
 alias raspi="ssh rich@192.168.0.201"
 
-mcd () {
-	mkdir $1 && cd $1
+cds () {
+    if [ $# -eq 0 ]; then
+        cd ~/Documents/scripts
+    else
+        cd ~/Documents/scripts/$1*
+    fi
+}
+
+cdd () {
+    if [$# -eq 0 ]; then
+        cd ~/Documents
+    else
+        cd ~/Documents/$1*
+    fi
 }
 
 PATH=$PATH:$HOME/scripts
