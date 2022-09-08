@@ -1,17 +1,17 @@
 #!/bin/bash
 
-if [ "$#" -ne 4 ]; then
+if [ "$#" -ne 3 ]; then
     echo Usage:
-    echo getrel {username}{@{hostname} {scratch_dir} {project name} {job number}
+    echo getrel {username}{@{hostname} {scratch_dir} {job number}
     exit
 fi
 
 # set up variables
 USERATHOST=$1
 SC_DIR=$2
-PROJECT=$3
+PROJECT=$(pwd | awk -F / '{print $NF}')
 RELPATH=$2/$PROJECT
-JOB_NUMBER=$4
+JOB_NUMBER=$3
 
 # left-pad and add "job" to input, if job is given simply as a number
 if ! grep -qs "job" $JOB_NUMBER
@@ -38,10 +38,11 @@ get_three_class() {
         echo Could not find 3D classification final iteration...
         exit
     else
-        mkdir $PROJECT-$JOB_NUMBER
-        pushd $PROJECT-$JOB_NUMBER
+        mkdir $PROJECT-3DC-$JOB_NUMBER
+        pushd $PROJECT-3DC-$JOB_NUMBER
         MAPS_PATH=$JOB_PATH/run_it$FINAL_ITER"_"class*.mrc
         scp $USERATHOST:$MAPS_PATH .
+		rename s/run/$PROJECT-$JOB_NUMBER/g *.mrc
         popd
     fi
 }
