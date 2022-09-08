@@ -35,14 +35,14 @@ cds () {
 }
 
 cdd () {
-    if [$# -eq 0 ]; then
+    if [ $# -eq 0 ]; then
         cd ~/Documents
     else
         cd ~/Documents/$1*
     fi
 }
 
-PATH=$PATH:$HOME/scripts
+PATH=$PATH:$HOME/.scripts
 
 # scp aliases
 
@@ -70,8 +70,8 @@ getcis () {
 }
 
 # wsl display
-export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
-export LIBGL_ALWAYS_INDIRECT=1
+# export DISPLAY=$(awk '/nameserver / {print $7; exit}' /etc/resolv.conf 2>/dev/null):0
+# export LIBGL_ALWAYS_INDIRECT=1
 
 # has to be different if connected over OHSU VPN
 vpndisp () {
