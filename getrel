@@ -1,8 +1,26 @@
 #!/bin/bash
 
+# ===============
+# getrel
+# 
+# Description: Automate download of RELION maps and masks.
+# Usage:
+# 	Set up ControlMaster and ControlPath in ~/.ssh/config
+#   Create an alias to getrel for each host you run RELION on
+#     E.g, alias gethost="getrel user@hostname /remote/dir/for/RELION/projects"
+#   Locally, create a directory wherever you like which matches
+#     the name of your RELION directory. That is, if your RELION
+#     project is `/path/to/remote/project-dir`, maybe your local
+#     directory could be `/local/path/to/project-dir`. The final
+#     dirname is what has to match.
+#   Run your alias in your loacl dir with just the job number to
+#     download relevant result files from 3D Auto Refine,
+#     3D Classification, and mask creation jobs. For example,
+#     `gethost 12` to download maps from job 12.
+
 if [ "$#" -ne 3 ]; then
     echo Usage:
-    echo getrel {username}{@{hostname} {scratch_dir} {job number}
+    echo getrel {username}@{hostname} {scratch_dir} {job number}
     exit
 fi
 
