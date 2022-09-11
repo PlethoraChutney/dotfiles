@@ -76,6 +76,22 @@ get_postprocess() {
     scp $USERATHOST:$JOB_PATH/postprocess.mrc $OUT_PATH 2>/dev/null
 }
 
+get_multibody() {
+	mkdir $PROJECT-MultiBody-$JOB_NUMBER
+	pushd $PROJECT-MultiBody-$JOB_NUMBER
+	
+	scp $USERATHOST:$JOB_PATH/run_body???.mrc .
+
+	if [ -z "$(ls ./)" ]; then
+		scp $USERATHOST:$JOB_PATH/run_ct?_body???.mrc .
+	fi
+
+	rename s/ct._//g *.mrc
+	rename s/run/$PROJECT-$JOB_NUMBER/g *.mrc
+
+	popd
+}
+
 # open the persistent SSH connection
 ssh $USERATHOST &>/dev/null &
 
@@ -85,16 +101,14 @@ JOB_FIND="find $RELPATH -mindepth 1 -maxdepth 2 -name $JOB_NUMBER"
 # find the job
 JOB_PATH=$(ssh $USERATHOST -t $JOB_FIND 2>/dev/null | sed 's/\r//g' | grep $JOB_NUMBER)
 
-if grep Refine3D <<< $JOB_PATH
-    then
+if grep Refine3D <<< $JOB_PATH; then
     get_refinement 
-elif grep Class3D <<< $JOB_PATH
-    then
+elif grep Class3D <<< $JOB_PATH; then
     get_three_class
-elif grep MaskCreate <<< $JOB_PATH
-    then
+elif grep MaskCreate <<< $JOB_PATH; then
     get_mask
-elif grep PostProcess <<< $JOB_PATH
-    then
+elif grep PostProcess <<< $JOB_PATH; then
     get_postprocess
+elif grep MultiBody <<< $JOB_PATH; then
+	get_multibody
 fi
