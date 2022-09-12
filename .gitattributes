@@ -1,2 +1,7 @@
 .bashrc -crlf
 .zshrc -crlf
+.zsh-custom -crlf
+getrel -crlf
+.vimrc -crlf
+demophoon.zsh-theme -crlf
+.wslrc -crlf
