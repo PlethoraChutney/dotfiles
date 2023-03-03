@@ -8,6 +8,9 @@ set smartindent
 set incsearch
 set ignorecase
 set smartcase
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.img,*.xlsx
 
 " text render
 set encoding=utf-8

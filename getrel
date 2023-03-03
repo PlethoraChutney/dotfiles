@@ -27,7 +27,7 @@ fi
 # set up variables
 USERATHOST=$1
 SC_DIR=$2
-PROJECT=$(pwd | awk -F / '{print $NF}')
+PROJECT=$(pwd -P | awk -F / '{print $NF}')
 RELPATH=$2/$PROJECT
 JOB_NUMBER=$3
 
@@ -38,15 +38,19 @@ if ! grep -qs "job" $JOB_NUMBER
     JOB_NUMBER=job$JOB_NUMBER
 fi
 
+echo Searching for $JOB_NUMBER
+
 # functions for each supported job type
 
 get_refinement() {
+	echo $JOB_NUMBER is a refinement
     OUT_PATH=$PROJECT"_"map-$JOB_NUMBER.mrc
 
     scp $USERATHOST:$JOB_PATH/run_class001.mrc $OUT_PATH 2>/dev/null
 }
 
 get_three_class() {
+	echo $JOB_NUMBER is a 3D classification
     FINAL_ITER_COMM="ls $JOB_PATH/*.mrc | sed -nr 's/.*run_it([0-9]{3}).*/\1/p' | tail -n 1"
 
     FINAL_ITER=$(ssh $USERATHOST -t $FINAL_ITER_COMM 2>/dev/null | sed "s/\r//g")
@@ -66,17 +70,20 @@ get_three_class() {
 }
 
 get_mask() {
+	echo $JOB_NUMBER is a mask
     OUT_PATH=$PROJECT"_"mask-$JOB_NUMBER.mrc
 
     scp $USERATHOST:$JOB_PATH/mask.mrc $OUT_PATH 2>/dev/null
 }
 
 get_postprocess() {
+	echo $JOB_NUMBER is a post-processing job
     OUT_PATH=$PROJECT"_"postprocess-$JOB_NUMBER.mrc
     scp $USERATHOST:$JOB_PATH/postprocess.mrc $OUT_PATH 2>/dev/null
 }
 
 get_multibody() {
+	echo $JOB_NUMBER is a multibody refinement
 	mkdir $PROJECT-MultiBody-$JOB_NUMBER
 	pushd $PROJECT-MultiBody-$JOB_NUMBER
 	
@@ -92,6 +99,12 @@ get_multibody() {
 	popd
 }
 
+get_locres() {
+	echo $JOB_NUMBER is local resolution
+	OUTPATH=$PROJECT"_"locres-filtered-$JOB_NUMBER.mrc
+	scp $USERATHOST:$JOB_PATH/relion_locres_filtered.mrc $OUTPATH
+}
+
 # open the persistent SSH connection
 ssh $USERATHOST &>/dev/null &
 
@@ -100,6 +113,8 @@ JOB_FIND="find $RELPATH -mindepth 1 -maxdepth 2 -name $JOB_NUMBER"
 
 # find the job
 JOB_PATH=$(ssh $USERATHOST -t $JOB_FIND 2>/dev/null | sed 's/\r//g' | grep $JOB_NUMBER)
+
+echo Found job at $JOB_PATH
 
 if grep Refine3D <<< $JOB_PATH; then
     get_refinement 
@@ -111,4 +126,6 @@ elif grep PostProcess <<< $JOB_PATH; then
     get_postprocess
 elif grep MultiBody <<< $JOB_PATH; then
 	get_multibody
+elif grep LocalRes <<< $JOB_PATH; then
+	get_locres
 fi

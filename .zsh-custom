@@ -1,17 +1,14 @@
-# common aliases
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -AlFh'
-
-alias grep='grep --color=auto'
-
 include () {
   [[ -f ${1} ]] && source ${1}
 }
 
 # ssh commands
 alias troll="ssh -Y posert@troll.ohsu.edu"
-alias cryosparc="ssh -L 11312:localhost:39000 posert@troll.ohsu.edu"
+# still want the -X in these background jobs because
+# if we open a persistent tunnel, we need to be able to forward
+# X over it for other stuff
+alias cryosparc="ssh -X -f -N -T -L 11312:localhost:39000 posert@troll.ohsu.edu"
+alias trollttp="ssh -X -f -N -T -L 8080:localhost:80 posert@troll.ohsu.edu"
 alias hotspur="ssh -X posert@hotspur.ohsu.edu"
 alias falstaff="ssh -X posert@falstaff.ohsu.edu"
 alias hen4="ssh -X posert@henry4.ohsu.edu"
@@ -42,9 +39,13 @@ cdd () {
     fi
 }
 
-PATH=$PATH:$HOME/.scripts
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$PATH:$HOME/.scripts"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-# scp aliases
+# ----------------------------------
+# cryoEM computing aliases
 
 putboreal () {
 	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
@@ -62,17 +63,25 @@ putask () {
         scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
 }
 
-include ~/.$(hostname)zc
-
-# exacloud download
-getcis () {
-        scp posert@exahead1.ohsu.edu:/home/groups/BaconguisLab/posert/$1/cistem-project/Assets/Volumes/$2 $3
+putmask () {
+	scp $1 posert@troll.ohsu.edu:~/masks/
 }
 
-# wsl display
-# export DISPLAY=$(awk '/nameserver / {print $7; exit}' /etc/resolv.conf 2>/dev/null):0
-# export LIBGL_ALWAYS_INDIRECT=1
+include ~/.$(hostname)zc
 
+# sync model building stuff
+
+modeld () {
+	rsync -avzP posert@troll.ohsu.edu:/home/users/posert/model-building/ ~/model-building
+}
+
+modelu () {
+	rsync -avzP ~/model-building/ posert@troll.ohsu.edu:/home/users/posert/model-building
+}
+
+# ----------------------------------------------
+# WSL stuf
+#
 # has to be different if connected over OHSU VPN
 vpndisp () {
         ip addr show eth2 &>/dev/null
@@ -82,7 +91,7 @@ vpndisp () {
 }
 
 # coloration and ls aliases
-alias ls="ls --color=auto"
+alias ls="ls -L --color=auto"
 alias la="ls -a"
 alias ll="ls -Falh"
 alias grep="grep --color=auto"

@@ -11,3 +11,7 @@
 	name = Rich
 [core]
 	editor = vim
+[pull]
+	ff = only
+[advice]
+	addIgnoredFile = false
