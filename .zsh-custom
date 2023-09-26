@@ -3,25 +3,6 @@ include () {
 }
 
 # ssh commands
-alias troll="ssh -Y posert@troll.ohsu.edu"
-# still want the -X in these background jobs because
-# if we open a persistent tunnel, we need to be able to forward
-# X over it for other stuff
-alias cryosparc="ssh -X -f -N -T -L 11312:localhost:39000 posert@troll.ohsu.edu"
-alias trollttp="ssh -X -f -N -T -L 8080:localhost:80 posert@troll.ohsu.edu"
-alias hotspur="ssh -X posert@hotspur.ohsu.edu"
-alias falstaff="ssh -X posert@falstaff.ohsu.edu"
-alias hen4="ssh -X posert@henry4.ohsu.edu"
-alias hen5="ssh -X posert@henry5.ohsu.edu"
-alias juliet="ssh -X posert@juliet.ohsu.edu"
-alias exahead="ssh -X posert@exahead1.ohsu.edu"
-alias boreal="ssh -X pose732@boreal.emsl.pnl.gov"
-alias askel="ssh -Y posert@askeladden.ohsu.edu"
-alias laskel="ssh -Y local@askeladden.ohsu.edu"
-alias exa1="ssh -Y posert@exahead1.ohsu.edu"
-alias exa2="ssh -Y posert@exahead2.ohsu.edu"
-alias exacloud='exa1'
-alias raspi="ssh rich@192.168.0.201"
 
 cds () {
     if [ $# -eq 0 ]; then
