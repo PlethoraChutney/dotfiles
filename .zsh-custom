@@ -25,30 +25,8 @@ export PATH="$PATH:$HOME/.scripts"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-# ----------------------------------
-# cryoEM computing aliases
 
-putboreal () {
-	scp $1 pose732@boreal.emsl.pnl.gov:/dtemp/emslp160003/$2
-}
-
-alias getex="getrel posert@exahead1.ohsu.edu /home/exacloud/gscratch/BaconguisLab/posert"
-
-putex () {
-	scp $1 posert@exahead1.ohsu.edu:/home/exacloud/gscratch/BaconguisLab/posert/$2 
-}
-
-alias getask="getrel posert@askeladden.ohsu.edu /goliath/processing/BaconguisLab/posert"
-
-putask () {
-        scp $1 posert@askeladden.ohsu.edu:/askeladden/scratch/posert/$2
-}
-
-putmask () {
-	scp $1 posert@troll.ohsu.edu:~/masks/
-}
-
-include ~/.$(hostname)zc
+include ~/.hostzc
 
 # sync model building stuff
 
