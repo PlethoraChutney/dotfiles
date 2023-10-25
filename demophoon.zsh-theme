@@ -57,7 +57,8 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('$fg[blue]`basename $VIRTUAL_ENV`%{$GREY%}') '
+	CONDA_BASE=$(basename $CONDA_PREFIX)
+    [[ $CONDA_BASE != "miniconda3" ]] && echo '('$fg[blue]$CONDA_BASE%{$GREY%}') '
 }
 PR_GIT_UPDATE=1
 
