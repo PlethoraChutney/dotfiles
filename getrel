@@ -105,9 +105,6 @@ get_locres() {
 	scp $USERATHOST:$JOB_PATH/relion_locres_filtered.mrc $OUTPATH
 }
 
-# open the persistent SSH connection
-ssh $USERATHOST &>/dev/null &
-
 # job find string
 JOB_FIND="find $RELPATH -mindepth 1 -maxdepth 2 -name $JOB_NUMBER"
 
