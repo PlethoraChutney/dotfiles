@@ -57,7 +57,7 @@ zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*:prompt:*' check-for-changes true
 
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('$fg[blue]`basename $VIRTUAL_ENV`%{$GREY%}') '
+    [ $CONDA_DEFAULT_ENV ] && [ $CONDA_DEFAULT_ENV != base ] && echo '('$fg[blue]`basename $CONDA_DEFAULT_ENV`%{$GREY%}') '
 }
 PR_GIT_UPDATE=1
 
@@ -71,8 +71,8 @@ PR_GIT_UPDATE=1
 PR_RST="%{${reset_color}%}"
 FMT_BRANCH="(%{$PURPLE%}%b%u%c${PR_RST})"
 FMT_ACTION="(%{$GREEN%}%a${PR_RST})"
-FMT_UNSTAGED="%{$ORANGE%}●${PR_RST}"
-FMT_STAGED="%{$GREEN%}●${PR_RST}"
+FMT_UNSTAGED="%{$ORANGE%} ●${PR_RST}"
+FMT_STAGED="%{$GREEN%} ●${PR_RST}"
 
 zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
 zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
@@ -107,7 +107,7 @@ function steeef_precmd {
         # check for untracked files or updated submodules, since vcs_info doesn't
         if git ls-files --other --exclude-standard 2> /dev/null | grep -q "."; then
             PR_GIT_UPDATE=1
-            FMT_BRANCH="%{$GREY%}on %{$PURPLE%}%b%u%c%{$RED%}●${PR_RST}"
+            FMT_BRANCH="%{$GREY%}on %{$PURPLE%}%b%u%c%{$RED%} ●${PR_RST}"
         else
             FMT_BRANCH="%{$GREY%}on %{$PURPLE%}%b%u%c${PR_RST}"
         fi
