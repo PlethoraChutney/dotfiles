@@ -1,3 +1,5 @@
+# entirely stolen from Britt Gresham
+#
 # prompt style and colors based on Steve Losh's Prose theme:
 # http://github.com/sjl/oh-my-zsh/blob/master/themes/prose.zsh-theme
 #
@@ -11,27 +13,29 @@ setopt prompt_subst
 autoload colors
 colors
 
+[[ $COLORTERM = *(24bit|truecolor)* ]] || zmodload zsh/nearcolor
+
 autoload -U add-zsh-hook
 autoload -Uz vcs_info
 
 eval PR_BOLD="%{$terminfo[bold]%}"
 #use extended color pallete if available
 if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-    MAGENTA="%F{9}$PR_BOLD"
-    ORANGE="%F{172}$PR_BOLD"
-    GREEN="%F{32}$PR_BOLD"
-    PURPLE="%F{141}$PR_BOLD"
-    BLUE="%F{27}$PR_BOLD"
-    WHITE="%F{0}$PR_BOLD"
-    TEXT="%F{7}"
-    GREY="%F{37}"
-    RED="%F{161}$PR_BOLD"
+    MAGENTA="%F{#f5c2e7}"
+    ORANGE="%F{#fab387}"
+    GREEN="%F{#a6e3a1}"
+    PURPLE="%F{#cba6f7}"
+    BLUE="%F{#1e66f5}"
+    WHITE="%F{0}"
+    TEXT="%F{#cdd6f4}"
+    GREY="%F{#cdd6f4}"
+    RED="%F{#e64553}"
 
-    turquoise="%F{81}"
-    orange="%F{166}"
-    purple="%F{135}"
-    hotpink="%F{161}"
-    limegreen="%F{118}"
+    turquoise="%F{#94e2d5}"
+    darkorange="%F{#fe640b}"
+    purple="%F{#cba6f7}"
+    hotpink="%F{#f5c2e7}"
+    limegreen="%F{#f9e2af}"
 else
     MAGENTA=$(tput setaf 5)
     ORANGE=$(tput setaf 4)
@@ -43,7 +47,7 @@ else
     RED="%fg[red]"
 
     turquoise="$fg[cyan]"
-    orange="$fg[yellow]"
+    darkorange="$fg[yellow]"
     purple="$fg[magenta]"
     hotpink="$fg[red]"
     limegreen="$fg[green]"
@@ -71,8 +75,8 @@ PR_GIT_UPDATE=1
 PR_RST="%{${reset_color}%}"
 FMT_BRANCH="(%{$PURPLE%}%b%u%c${PR_RST})"
 FMT_ACTION="(%{$GREEN%}%a${PR_RST})"
-FMT_UNSTAGED="%{$ORANGE%} ●${PR_RST}"
-FMT_STAGED="%{$GREEN%} ●${PR_RST}"
+FMT_UNSTAGED="%{$darkorange%} ●${PR_RST}"
+FMT_STAGED="%{$turquoise%} ●${PR_RST}"
 
 zstyle ':vcs_info:*:prompt:*' unstagedstr   "${FMT_UNSTAGED}"
 zstyle ':vcs_info:*:prompt:*' stagedstr     "${FMT_STAGED}"
@@ -208,7 +212,7 @@ function set-prompt() {
     timer_msg="$(_fmt_duration ${_last_cmd_time}) | "
   fi
 
-  local top_left="${MAGENTA}%n${GREY} at ${limegreen}%m${GREY} in ${GREEN}%~${GREY} ${vcs_info_msg_0_}$(virtualenv_info)"
+  local top_left="${MAGENTA}%n${GREY} at ${ORANGE}%m${GREY} in ${BLUE}%~${GREY} ${vcs_info_msg_0_}$(virtualenv_info)"
   local top_right="${GREY}[ ${exit_msg}${timer_msg}!%h ${GREY}]${reset_color}"
   local bottom_left="%{$GREY%}\$%{$reset_color%} ${TEXT}"
   local bottom_right="%{$BLUE%}$(_current_time)%{$reset_color%}"
