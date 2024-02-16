@@ -30,7 +30,7 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export EDITOR="$(which vim)"
 
-[ -f ~/.$(hostname)zc ] && source ~/.$(hostname)zc
+[ -f ~/.hostzc ] && source ~/.hostzc
 
 if which gls>/dev/null
 then
