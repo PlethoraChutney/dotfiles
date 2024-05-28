@@ -1,0 +1,10 @@
+# Colors I like. Subject to change without notice.
+
+color name incol1 #0077BB
+color name incol2 #EE7733
+color name incol3 #EE3377
+color name incol4 #33BBEE
+color name incol5 #00988
+color name incol6 #CC3311
+
+vol defaultvalues initialColors #0077BB,#EE7733,#EE3377,#33BBEE,#00988,#CC3311

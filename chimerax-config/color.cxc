@@ -1,0 +1,17 @@
+# Colors I like. Subject to change without notice
+
+vol defaultvalues initialColors #0077BB,#EE7733,#EE3377,#009988,#CC3311
+
+# icol for Initial Color
+color name icol1 #0077BB
+color name icol2 #EE7733
+color name icol3 #EE3377
+color name icol4 #009988
+color name icol5 #CC3311
+
+# lcol for Lighter Color
+color name lcol1 #6ECAFF
+color name lcol2 #FFA36E
+color name lcol3 #ED8CB0
+color name lcol4 #44DBCA
+color name lcol5 #FF5F3B

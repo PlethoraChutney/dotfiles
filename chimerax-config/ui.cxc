@@ -1,0 +1,4 @@
+ui mousemode right zoom
+sty stick
+cofr centerofview
+graphics sel color blue width 6
