@@ -46,7 +46,7 @@ fi
 alias la="ls -a"
 alias ll="ls -alh"
 alias grep="grep --color=auto"
-export LS_COLORS="$LS_COLORS:ow=1;34;107:tw=1;34;107"
+export LS_COLORS="$LS_COLORS:ow=1;101:tw=1;30;101:st=1;30;101"
 
 make_gif () {
 	ffmpeg -i $1 -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse,fps=50" $2
@@ -62,3 +62,12 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=("$HOME/.juliaup/bin" $path)
+export PATH
+
+# <<< juliaup initialize <<<
