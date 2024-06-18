@@ -24,3 +24,6 @@ for color in $LPALETTE; do
     echo "color name lcol$index $color" >> color.cxc
     index+=1
 done
+
+echo "" >> color.cxc
+echo "color name slidebg #f0f4ff" >> color.cxc
