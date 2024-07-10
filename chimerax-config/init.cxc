@@ -3,6 +3,7 @@
 open ui.cxc
 open oli.cxc
 open color.cxc
+runscript open_separately.py
 
 # volume series controls
 alias openser open ~/Downloads/cryosparc_P$1_J$2_*_$3/*.mrc vser true
