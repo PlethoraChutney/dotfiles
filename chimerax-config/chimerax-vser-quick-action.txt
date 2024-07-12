@@ -1,0 +1,13 @@
+on run {input, parameters}
+	
+	tell application "ChimeraX-1.8"
+		reopen
+		activate
+		set vserPath to POSIX path of input & "*.mrc"
+		set the clipboard to "open " & quoted form of vserPath & " vser true"
+		tell application "System Events" to keystroke "v" using command down
+		tell application "System Events" to keystroke return
+	end tell
+	
+	return input
+end run
