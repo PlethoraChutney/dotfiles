@@ -1,0 +1,4 @@
+functionkey F1 "ui mousemode right zoom"
+functionkey F2 "ui mousemode right 'translate selected models'"
+functionkey F7 "~cartoon; show; style stick"
+functionkey F8 "~show; cartoon"
