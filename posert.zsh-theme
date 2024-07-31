@@ -21,21 +21,21 @@ autoload -Uz vcs_info
 eval PR_BOLD="%{$terminfo[bold]%}"
 #use extended color pallete if available
 if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-    MAGENTA="%F{#f5c2e7}"
-    ORANGE="%F{#fab387}"
-    GREEN="%F{#a6e3a1}"
-    PURPLE="%F{#cba6f7}"
-    BLUE="%F{#1e66f5}"
-    WHITE="%F{0}"
-    TEXT="%F{#cdd6f4}"
-    GREY="%F{#cdd6f4}"
-    RED="%F{#e64553}"
+    MAGENTA="%F{magenta}"
+    ORANGE="%F{yellow}"
+    GREEN="%F{green}"
+    PURPLE="%F{magenta}"
+    BLUE="%F{blue}"
+    WHITE="%F{white}"
+    TEXT="%F{black}"
+    GREY="%F{white}"
+    RED="%F{red}"
 
-    turquoise="%F{#94e2d5}"
-    darkorange="%F{#fe640b}"
-    purple="%F{#cba6f7}"
-    hotpink="%F{#f5c2e7}"
-    limegreen="%F{#f9e2af}"
+    turquoise="%F{cyan}"
+    darkorange="%F{yellow}"
+    purple="%F{blue}"
+    hotpink="%F{magenta}"
+    limegreen="%F{green}"
 else
     MAGENTA=$(tput setaf 5)
     ORANGE=$(tput setaf 4)
@@ -212,7 +212,7 @@ function set-prompt() {
     timer_msg="$(_fmt_duration ${_last_cmd_time}) | "
   fi
 
-  local top_left="${MAGENTA}%n${GREY} at ${ORANGE}%m${GREY} in ${BLUE}%~${GREY} ${vcs_info_msg_0_}$(virtualenv_info)"
+  local top_left="%B${MAGENTA}%n${GREY}%b at %B${ORANGE}%m${GREY}%b in %B${BLUE}%~${GREY}%b ${vcs_info_msg_0_}$(virtualenv_info)"
   local top_right="${GREY}[ ${exit_msg}${timer_msg}!%h ${GREY}]${reset_color}"
   local bottom_left="%{$GREY%}\$%{$reset_color%} ${TEXT}"
   local bottom_right="%{$BLUE%}$(_current_time)%{$reset_color%}"
