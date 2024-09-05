@@ -14,3 +14,5 @@ alias vplay vser play $1 dir osc loop true startTime 1 cache 120
 alias vstop vser stop $1
 
 alias locres color sample $1 map $2 palette rdylbu key true range $3
+
+alias startserver remotecontrol rest start json true port 60312

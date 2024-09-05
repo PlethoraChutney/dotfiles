@@ -16,4 +16,28 @@ color name lcol3 #ED8CB0
 color name lcol4 #44DBCA
 color name lcol5 #FF5F3B
 
+# Archambault palette
+color name archcol1 #93B1E9
+color name archcol2 #492376
+color name archcol3 #955B87
+color name archcol4 #FEA398
+color name archcol5 #C83320
+color name archcol6 #FC9000
+color name archcol7 #FFD700
+
+# Cross palette
+color name crosscol1 #FAB06E
+color name crosscol2 #E4766E
+color name crosscol3 #E7723D
+color name crosscol4 #99A87C
+color name crosscol5 #6B968D
+color name crosscol6 #73A2A9
+color name crosscol7 #005E75
+color name crosscol8 #0E2E61
+color name crosscol9 #D67FB0
+
 color name slidebg #f0f4ff
+color name egyptRed #E66735
+color name egyptBlue #008EB2
+color name egyptGreen #4FBD96
+color name egyptYellow #FCBF67
