@@ -4,7 +4,7 @@
 			"hsub": "<h2>${1} <span class=\"subhead\">${2}</span></h2>",
 			"ptable": "table.param-table>tbody>tr>td*2",
 			"cxlink": "a[data-script-path]",
-			"ptimer": "p.fragment[data-time data-label]",
+			"ptimer": "p.fragment.timer[data-time data-label]",
 			"vautoplay": "video[loop data-autoplay]"
 		}
 	}
