@@ -1,5 +1,0 @@
-# Taken from the one and only Oli Clarke
-
-volume defaultvalues limitVoxelCount false voxelLimitForPlane 1000000000000000 voxelLimitForOpen 1000000000000000 saveSettings true
-alias map_sphere surface unzone ##~num_residues; sel; close #10000; marker #10000 position cofr; sel ~sel; surface zone ##~num_residues nearAtoms sel distance $1; close #10000
-alias map_unsphere surface unzone ##~num_residues

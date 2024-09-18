@@ -1,5 +1,11 @@
 functionkey F1 "ui mousemode right zoom"
 functionkey F2 "ui mousemode right 'translate selected models'"
-functionkey F7 "~cartoon; show; style stick"
-functionkey F8 "~show; cartoon"
+functionkey F3 "~cartoon; show; style stick"
+functionkey F4 "~show; cartoon"
+
+functionkey F6 "move x -10 models sel"
+functionkey F7 "move y -10 models sel"
+functionkey F6 "move y 10 models sel"
+functionkey F6 "move x 10 models sel"
+
 functionkey F12 "close"

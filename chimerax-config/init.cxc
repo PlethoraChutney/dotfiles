@@ -1,7 +1,6 @@
 # I took the idea of an init.cxc file from Guillaume Gaullier https://github.com/Guillawme/chimerax-config
 
 open ui.cxc
-open oli.cxc
 open color.cxc
 open function-keys.cxc
 runscript open_separately.py
