@@ -17,7 +17,5 @@
 	addIgnoredFile = false
 [push]
 	followTags = true
-[merge]
-	conflictStyle = zdiff3
 [submodule]
 	recurse = true
