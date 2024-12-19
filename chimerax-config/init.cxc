@@ -4,6 +4,7 @@ open ui.cxc
 open color.cxc
 open function-keys.cxc
 open custom-commands.cxc
+open flex.cxc
 runscript open_separately.py
 
 alias iturn turn $1 $2 $3 models $4 center $4 $*

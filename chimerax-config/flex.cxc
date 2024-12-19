@@ -1,0 +1,3 @@
+alias openflexmesh open ~/Downloads/flex-meshes/$1-$2_displ-$3_mesh.cif coordset true
+alias styleflexmesh style $1 stick dashes 1; size $1 pseudobondRadius 0.25 atomradius 4; style ball $1
+alias playflex vser play $1 dir osc loop 1 start 0; coordset $2 1, loop 1 bounce true
