@@ -32,6 +32,6 @@ keybind = super+shift+k=goto_split:bottom
 keybind = super+shift+l=goto_split:right
 
 # quick terminal
-keybind = global:super+f1=toggle_quick_terminal
+keybind = global:opt+grave_accent=toggle_quick_terminal
 quick-terminal-position = center
 quick-terminal-animation-duration = 0
