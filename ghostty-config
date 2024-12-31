@@ -1,0 +1,37 @@
+# font
+font-family = "Monaspace Argon Var"
+font-feature = calt
+font-feature = ss01
+font-feature = ss02
+font-feature = ss03
+font-feature = liga
+font-size = 14
+window-inherit-font-size = false
+
+# theme
+theme = light:catppuccin-latte,dark:catppuccin-mocha
+window-theme = system
+
+# window
+window-width = 133
+window-height = 33
+
+# splits
+unfocused-split-opacity=0.5
+
+##  split creation
+keybind = ctrl+k>k=new_split:up
+keybind = ctrl+k>j=new_split:down
+keybind = ctrl+k>l=new_split:right
+keybind = ctrl+k>h=new_split:left
+
+##  split navigation
+keybind = super+shift+h=goto_split:left
+keybind = super+shift+j=goto_split:top
+keybind = super+shift+k=goto_split:bottom
+keybind = super+shift+l=goto_split:right
+
+# quick terminal
+keybind = global:super+f1=toggle_quick_terminal
+quick-terminal-position = center
+quick-terminal-animation-duration = 0

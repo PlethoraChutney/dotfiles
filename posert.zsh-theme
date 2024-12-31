@@ -20,7 +20,7 @@ autoload -Uz vcs_info
 
 eval PR_BOLD="%{$terminfo[bold]%}"
 #use extended color pallete if available
-if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+if [[ $TERM = *256color* || $TERM = *rxvt*  || $TERM = xterm-ghostty ]]; then
     MAGENTA="%F{magenta}"
     ORANGE="%F{yellow}"
     GREEN="%F{green}"
