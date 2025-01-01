@@ -27,8 +27,8 @@ if [[ $TERM = *256color* || $TERM = *rxvt*  || $TERM = xterm-ghostty ]]; then
     PURPLE="%F{magenta}"
     BLUE="%F{blue}"
     WHITE="%F{white}"
-    TEXT="%F{black}"
-    GREY="%F{white}"
+    TEXT="%F{grey}"
+    GREY="%F{grey}"
     RED="%F{red}"
 
     turquoise="%F{cyan}"
