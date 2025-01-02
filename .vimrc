@@ -14,10 +14,6 @@ filetype indent on
 set autoread
 au FocusGained,BufEnter * silent! checktime
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-
 " Fast saving
 nmap <leader>w :w!<cr>
 
@@ -127,7 +123,7 @@ set shiftwidth=4
 set tabstop=4
 
 set ai "Auto indent
-set indentexpr "Smarter indent
+set indentexpr=GetPythonIndent(v:lnum) "Smarter indent
 set lbr "break on words
 set wrap "Wrap lines
 
