@@ -13,7 +13,7 @@ theme = light:catppuccin-latte,dark:catppuccin-mocha
 window-theme = system
 
 # window
-window-width = 133
+window-width = 100
 window-height = 33
 
 # splits
