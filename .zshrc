@@ -28,6 +28,11 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$PATH:$HOME/.scripts"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+if (( $+commands[nvim] )); then
+	alias vim=$(which nvim)
+fi
+
 export EDITOR="$(which vim)"
 
 strlen() {
