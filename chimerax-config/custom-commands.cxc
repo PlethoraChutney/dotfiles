@@ -1,1 +1,3 @@
-open rotate-sep.py
+open python-scripts/rotate-sep.py
+open python-scripts/open_separately.py
+open python-scripts/class-iter.py

@@ -49,3 +49,6 @@ echo "color name egyptRed #E66735" >> color.cxc
 echo "color name egyptBlue #008EB2" >> color.cxc
 echo "color name egyptGreen #4FBD96" >> color.cxc
 echo "color name egyptYellow #FCBF67" >> color.cxc
+
+echo "graphics silhouettes true" >> color.cxc
+echo "lighting soft" >> color.cxc

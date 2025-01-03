@@ -5,7 +5,6 @@ open color.cxc
 open function-keys.cxc
 open custom-commands.cxc
 open flex.cxc
-runscript open_separately.py
 
 alias iturn turn $1 $2 $3 models $4 center $4 $*
 alias imsave save ~/Desktop/$1.png super 3 trans true $*
