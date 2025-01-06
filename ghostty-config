@@ -31,6 +31,12 @@ keybind = super+shift+j=goto_split:top
 keybind = super+shift+k=goto_split:bottom
 keybind = super+shift+l=goto_split:right
 
+## resize splits
+keybind = super+shift+left=resize_split:left,50
+keybind = super+shift+up=resize_split:up,50
+keybind = super+shift+down=resize_split:down,50
+keybind = super+shift+right=resize_split:right,50
+
 # quick terminal
 keybind = global:opt+grave_accent=toggle_quick_terminal
 quick-terminal-position = top
