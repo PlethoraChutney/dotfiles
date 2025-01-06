@@ -37,9 +37,6 @@ keybind = super+shift+up=resize_split:up,50
 keybind = super+shift+down=resize_split:down,50
 keybind = super+shift+right=resize_split:right,50
 
-# quick terminal
-keybind = global:opt+grave_accent=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-screen = macos-menu-bar
-quick-terminal-animation-duration = 0
-quick-terminal-autohide=false
+# toggle visibility instead of quick terminal b/c I don't love the
+# position and size of the quick terminal
+keybind = global:opt+grave_accent=toggle_visibility
