@@ -24,6 +24,8 @@ cdd () {
     fi
 }
 
+[ -f ~/.hostzc ] && source ~/.hostzc
+
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$PATH:$HOME/.scripts"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
@@ -39,7 +41,6 @@ strlen() {
 	echo -n $1 | wc -c
 }
 
-[ -f ~/.hostzc ] && source ~/.hostzc
 
 if which gls>/dev/null
 then
@@ -51,7 +52,6 @@ fi
 alias la="ls -a"
 alias ll="ls -alh"
 alias grep="grep --color=auto"
-export LS_COLORS="$LS_COLORS:ow=1;101:tw=1;30;101:st=1;30;101"
 
 make_gif () {
 	ffmpeg -i $1 -filter_complex "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse,fps=50" $2
