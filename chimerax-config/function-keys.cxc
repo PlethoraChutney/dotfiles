@@ -3,9 +3,11 @@ functionkey F2 "ui mousemode right 'translate selected models'"
 functionkey F3 "~cartoon; show; style stick"
 functionkey F4 "~show; cartoon"
 
-functionkey F7 "move x -10 models sel"
-functionkey F8 "move y 10 models sel"
-functionkey F9 "move y -10 models sel"
-functionkey F10 "move x 10 models sel"
+functionkey F6 "volume gaussian sel sdev 2"
+
+functionkey F7 "move x -1 models sel"
+functionkey F8 "move y 1 models sel"
+functionkey F9 "move y -1 models sel"
+functionkey F10 "move x 1 models sel"
 
 functionkey F12 "close"
