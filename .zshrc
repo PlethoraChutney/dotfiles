@@ -26,13 +26,14 @@ cdd () {
 }
 
 
-export PATH="$PATH:$HOME/.scripts"
+export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 
 if (( $+commands[nvim] )); then
-	alias vim=$(which nvim)
+	alias vim=nvim
 fi
 
-export EDITOR="$(which vim)"
+export EDITOR=vim
+export SUDO_EDITOR=vim
 
 strlen() {
 	echo -n $1 | wc -c
