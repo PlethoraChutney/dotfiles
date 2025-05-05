@@ -1,3 +1,13 @@
 open python-scripts/rotate-sep.py
 open python-scripts/open_separately.py
 open python-scripts/class-iter.py
+
+alias imsave save ~/Desktop/$1.png super 3 trans true $*
+
+# volume series controls
+alias openser open ~/Downloads/cryosparc_P$1_J$2_*_$3/*.mrc vser true
+alias vplay vser play $1 dir osc loop true startTime 1 cache 120
+alias vstop vser stop $1
+
+alias locres color sample $1 map $2 palette rdylbu key true range $3
+
