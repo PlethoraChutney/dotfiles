@@ -37,9 +37,14 @@ color name crosscol8 #0E2E61
 color name crosscol9 #D67FB0
 
 color name slidebg #f0f4ff
-color name egyptRed #E66735
-color name egyptBlue #008EB2
-color name egyptGreen #4FBD96
-color name egyptYellow #FCBF67
+color name egyptr1 #E66735
+color name egyptr2 #FF8461
+color name egyptb1 #008EB2
+color name egyptb2 #81CDE9
+color name egyptg1 #4FBD96
+color name egyptg2 #73DCB0
+color name egypty1 #FCBF67
+color name egypty2 #FFD093
+
 graphics silhouettes true
 lighting soft
