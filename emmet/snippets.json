@@ -1,13 +1,14 @@
 {
 	"html": {
 		"snippets": {
-			"slide": "section[data-auto-animate]>h2",
+			"slide": "section[data-auto-animate=true]",
 			"ptable": "table.param-table>tbody>tr>td*2",
 			"cxlink": "a[data-script-path]",
 			"vautoplay": "video[loop data-autoplay]",
 			"fitone": "div.fit-one.r-stretch",
 			"fittwo": "div.fit-two.r-stretch",
-			"imcap": "div.im-cap>img+p"
+			"imcap": "div.im-cap>img+p",
+			"imslide": "div.make-slider[data-default=0]>img*2"
 		}
 	}
 }
