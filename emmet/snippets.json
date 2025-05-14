@@ -1,11 +1,13 @@
 {
 	"html": {
 		"snippets": {
-			"hsub": "<h2>${1} <span class=\"subhead\">${2}</span></h2>",
+			"slide": "section[data-auto-animate]>h2",
 			"ptable": "table.param-table>tbody>tr>td*2",
 			"cxlink": "a[data-script-path]",
-			"ptimer": "p.fragment.timer[data-time data-label]",
-			"vautoplay": "video[loop data-autoplay]"
+			"vautoplay": "video[loop data-autoplay]",
+			"fitone": "div.fit-one.r-stretch",
+			"fittwo": "div.fit-two.r-stretch",
+			"imcap": "div.im-cap>img+p"
 		}
 	}
 }
