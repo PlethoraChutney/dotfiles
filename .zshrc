@@ -30,10 +30,13 @@ export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
 
 if (( $+commands[nvim] )); then
 	alias vim=nvim
-fi
+	export EDITOR=nvim
+	export SUDO_EDITOR=$(command -v nvim)
+else
+	export EDITOR=vim
+	export SUDO_EDITOR=vim
 
-export EDITOR=vim
-export SUDO_EDITOR=vim
+fi
 
 strlen() {
 	echo -n $1 | wc -c
