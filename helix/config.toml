@@ -1,1 +1,19 @@
 theme = "catppuccin_latte"
+
+[editor]
+scrolloff = 10
+bufferline = "multiple"
+jump-label-alphabet = "jfkdlsahgtyrueiwoqpbnvmcxz"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[keys.insert]
+"C-f" = ":format"

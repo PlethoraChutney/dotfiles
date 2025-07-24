@@ -1,0 +1,62 @@
+{
+	"Think-Pair timer (think)": {
+		"scope": "html",
+		"prefix": "tpst-self",
+		"body": "<p class= \"fragment timer\" data-timer=\"${1:240}\" data-label=\"${2:Discuss with your neighbor}\"></p>"
+	},
+	"Think-Pair timer (pair)": {
+		"scope": "html",
+		"prefix": "tpst-pair",
+		"body": "<p class=\"fragment timer\" data-time=\"${1:240}\" data-label=\"${2:Discuss with your neighbor}\"></p>"
+	},
+	"New blank slide": {
+		"scope": "html",
+		"prefix": "slide",
+		"body": "section[data-auto-animate]"
+	},
+	"Video background slide": {
+		"scope": "html",
+		"prefix": "bg-video",
+		"body": "<section\ndata-auto-animate\ndata-background-video=\"$1\"\ndata-background-size=\"contain\"\ndata-background-transition=\"none\"\ndata-transition=\"none\"\n>$2\n</section>\n"
+	},
+	"Image background slide": {
+		"scope": "html",
+		"prefix": "bg-img",
+		"body": "<section\ndata-auto-animate\ndata-background-color=\"#005E75\"\ndata-background-image=\"$1\"\ndata-background-size=\"contain\"\ndata-background-transition=\"none\"\ndata-transition=\"none\"\n>$2\n</section>\n$0"
+	},
+	"Parameter table": {
+		"scope": "html",
+		"prefix": "ptable",
+		"body": "table.param-table>tbody>tr>td*2"
+	},
+	"ChimeraX link": {
+		"scope": "html",
+		"prefix": "cxlink",
+		"body": "a[data-script-path]"
+	},
+	"Video autoplay": {
+		"scope": "html",
+		"prefix": "vautoplay",
+		"body": "video[loop data-autoplay]"
+	},
+	"Fit one": {
+		"scope": "html",
+		"prefix": "fitone",
+		"body": "div.fit-one.r-stretch"
+	},
+	"Fit two": {
+		"scope": "html",
+		"prefix": "fitone",
+		"body": "div.fit-two.r-stretch"
+	},
+	"Image caption": {
+		"scope": "html",
+		"prefix": "imcap",
+		"body": "div.im-cap>img+p"
+	},
+	"Image slider": {
+		"scope": "html",
+		"prefix": "imslide",
+		"body": "div.make-slider[data-default=0]>img*2"
+	}
+}
