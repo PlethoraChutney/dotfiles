@@ -18,3 +18,10 @@ skip-levels = 1
 [keys.insert]
 "C-f" = ":format"
 "S-ret" = "@<ret><ret><up>\t\t"
+"q" = { "q" = "normal_mode" }
+
+[keys.normal]
+"H" = "extend_char_left"
+"J" = "extend_line_up"
+"K" = "extend_line_down"
+"L" = "extend_char_right"
