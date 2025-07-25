@@ -28,3 +28,6 @@ skip-levels = 1
 "J" = "extend_line_up"
 "K" = "extend_line_down"
 "L" = "extend_char_right"
+";" = "flip_selections"
+"A-;" = "collapse_selection"
+"C-/" = "toggle_comments"
