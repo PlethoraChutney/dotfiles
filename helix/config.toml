@@ -5,6 +5,9 @@ scrolloff = 10
 bufferline = "multiple"
 jump-label-alphabet = "jfkdlsahgtyrueiwoqpbnvmcxz"
 
+[editor.file-picker]
+hidden = false
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
