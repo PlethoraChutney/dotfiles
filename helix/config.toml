@@ -20,7 +20,7 @@ skip-levels = 1
 
 [keys.insert]
 "C-f" = ":format"
-"S-ret" = "@<ret><ret><up>\t\t"
+"S-ret" = "@<ret><ret><up>\t"
 "q" = { "q" = "normal_mode" }
 
 [keys.normal]

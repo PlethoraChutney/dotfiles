@@ -17,7 +17,7 @@ words = [
 ]
 
 ignore_patterns = [
-    "(class|id)=\".+\"",
+    ".*\"[^\"]+\"",
     "https?://[^\\s]+",
     "^[A-Z]{2,}$"
 ]
