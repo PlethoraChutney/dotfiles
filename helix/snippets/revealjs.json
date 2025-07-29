@@ -2,7 +2,7 @@
 	"Think-Pair timer (think)": {
 		"scope": "html",
 		"prefix": "tpst-self",
-		"body": "<p class= \"fragment timer\" data-timer=\"${1:240}\" data-label=\"${2:Discuss with your neighbor}\"></p>"
+		"body": "<p class= \"fragment timer\" data-time=\"${1:60}\" data-label=\"${2:Think to yourself}\"></p>"
 	},
 	"Think-Pair timer (pair)": {
 		"scope": "html",

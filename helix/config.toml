@@ -4,6 +4,8 @@ theme = "catppuccin_latte"
 scrolloff = 10
 bufferline = "multiple"
 jump-label-alphabet = "jfkdlsahgtyrueiwoqpbnvmcxz"
+color-modes = true
+auto-pairs = false
 
 [editor.file-picker]
 hidden = false
@@ -20,7 +22,7 @@ skip-levels = 1
 
 [keys.insert]
 "C-f" = ":format"
-"S-ret" = "@<ret><ret><up>\t"
+"S-ret" = "@<ret><up><esc>o\t"
 "q" = { "q" = "normal_mode" }
 
 [keys.normal]
@@ -28,6 +30,11 @@ skip-levels = 1
 "J" = "extend_line_up"
 "K" = "extend_line_down"
 "L" = "extend_char_right"
-";" = "flip_selections"
-"A-;" = "collapse_selection"
 "C-/" = "toggle_comments"
+"A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
+"A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+
+[keys.select]
+"A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
+"A-j" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
+"Cmd-e" = {"w" = ":| tw \"%{selection}\""}

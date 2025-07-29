@@ -29,3 +29,10 @@ name = "html"
 roots = [".git"]
 language-servers = ["emmet-lsp", "scls", "codebook"]
 indent = { tab-width = 4, unit = "    "}
+
+[[language]]
+name = "python"
+roots = [".git", "pyproject.toml"]
+language-servers = ["jedi", "ruff"]
+shebangs = ["python3", "python"]
+file-types = ["py"]
