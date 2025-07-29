@@ -1,0 +1,7 @@
+{
+	"CryoSPARC Tools": {
+		"scope": "python",
+		"prefix": "cstools",
+		"body": "from cryosparc.tools import CryoSPARC\nimport json\nimport numpy as np\nfrom pathlib import Path\nimport matplotlib.pyplot as plt\n\nwith open(Path(\"~/instance-info.json\").expanduser(), \"r\") as f:\n\tinstance_info = json.load(f)\ncs = CryoSPARC(**instance_info)\nassert cs.test_connection()\n\nproject_uid = \"P$1\"\nworkspace_uid = \"W$2\"\njob_uid = \"J$3\"\nproject = cs.find_project(project_uid)\njob = project.find_job(job_uid)\nresults = job.load_output(\"$4\")\n$5"
+	}
+}

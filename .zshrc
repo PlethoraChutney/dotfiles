@@ -11,7 +11,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration ====================================
 
-export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.scripts:$HOME/.local/bin:$HOME/.cargo/bin"
 
 if (( $+commands[hx] )); then
 	export EDITOR=hx
