@@ -36,3 +36,7 @@ roots = [".git", "pyproject.toml"]
 language-servers = ["jedi", "ruff", "scls"]
 shebangs = ["python3", "python"]
 file-types = ["py"]
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server"]
