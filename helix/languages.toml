@@ -40,3 +40,4 @@ file-types = ["py"]
 [[language]]
 name = "css"
 language-servers = ["vscode-css-language-server"]
+auto-format = false

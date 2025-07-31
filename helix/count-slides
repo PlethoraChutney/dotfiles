@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+grep '<section' $1 | wc -l

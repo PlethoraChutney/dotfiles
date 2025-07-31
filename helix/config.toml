@@ -6,6 +6,7 @@ bufferline = "multiple"
 jump-label-alphabet = "jfkdlsahgtyrueiwoqpbnvmcxz"
 color-modes = true
 auto-pairs = false
+cursorline = true
 
 [editor.file-picker]
 hidden = false
@@ -33,13 +34,21 @@ skip-levels = 1
 "C-/" = "toggle_comments"
 "A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
 "A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+"V" = "keep_primary_selection"
+";" = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
 [keys.normal.space]
 "t" = "@ b%id "
 
+[keys.normal.space.c]
+"c" = "@:sh count-slides <C-r>%<ret>"
+# create a new slide with the same title as the header tag the cursor is currently in
+"s" = "@ghf<gt>lt<lt>\"ty//section<ret>A<ret><ret><lt>section data-auto-animate<gt><ret><tab><lt>h2<gt><lt>/h2<gt><esc>Bt<gt>l\"tpA<ret><backspace><lt>/section<gt><esc>kA<ret>"
+"y" = "@\"ty"
+"p" = "@\"tp"
 
 [keys.select]
 "A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]
 "A-j" = ["goto_line_end","extend_line_below",  "delete_selection", "paste_after", "select_mode" ]
 "Cmd-e" = {"w" = ":| tw \"%{selection}\""}
-";" = ["collapse_selection", "normal_mode"]
+";" = ["collapse_selection", "keep_primary_selection", "normal_mode"]

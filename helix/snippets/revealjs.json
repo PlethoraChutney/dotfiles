@@ -12,12 +12,12 @@
 	"New blank slide": {
 		"scope": "html",
 		"prefix": "slide",
-		"body": "section[data-auto-animate]"
+		"body": "section[data-auto-animate=\"\"]"
 	},
 	"New title slide": {
 		"scope": "html",
 		"prefix": "sh2",
-		"body": "section[data-auto-animate]>h2"
+		"body": "section[data-auto-animate=\"\"]>h2"
 	},
 	"Video background slide": {
 		"scope": "html",
@@ -51,7 +51,7 @@
 	},
 	"Fit two": {
 		"scope": "html",
-		"prefix": "fitone",
+		"prefix": "fittwo",
 		"body": "div.fit-two.r-stretch"
 	},
 	"Image caption": {
