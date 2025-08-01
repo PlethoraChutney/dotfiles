@@ -12,10 +12,6 @@ window-inherit-font-size = false
 theme = light:catppuccin-latte,dark:catppuccin-mocha
 window-theme = system
 
-# window
-window-width = 100
-window-height = 33
-
 # splits
 unfocused-split-opacity=0.5
 
@@ -26,25 +22,13 @@ keybind = ctrl+k>l=new_split:right
 keybind = ctrl+k>h=new_split:left
 
 ##  split navigation
-keybind = super+shift+h=goto_split:left
-keybind = super+shift+j=goto_split:top
-keybind = super+shift+k=goto_split:bottom
-keybind = super+shift+l=goto_split:right
-
 keybind = super+shift+a=goto_split:left
 keybind = super+shift+w=goto_split:top
 keybind = super+shift+s=goto_split:bottom
 keybind = super+shift+d=goto_split:right
 
-## resize splits
+## split resize
 keybind = super+shift+left=resize_split:left,50
 keybind = super+shift+up=resize_split:up,50
 keybind = super+shift+down=resize_split:down,50
 keybind = super+shift+right=resize_split:right,50
-
-# quick terminal
-keybind = global:opt+grave_accent=toggle_quick_terminal
-quick-terminal-position = top
-quick-terminal-screen = macos-menu-bar
-quick-terminal-animation-duration = 0
-quick-terminal-autohide=false
