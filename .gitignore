@@ -1,2 +1,2 @@
-nvim/lazy-lock.json
-helix/runtime/
+config/nvim/lazy-lock.json
+config/helix/runtime/

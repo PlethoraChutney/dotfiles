@@ -1,0 +1,45 @@
+{
+    "save_workspace": "never",
+    "load_workspace": false,
+    "initial_working_directory": "~/Documents",
+    "always_save_history": false,
+    "insert_native_pipe_operator": true,
+    "editor_theme": "catppuccin-latte",
+    "posix_terminal_shell": "bash",
+    "font_size_points": 11,
+    "panes": {
+        "quadrants": [
+            "Source",
+            "Console",
+            "TabSet1",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Plots",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Packages",
+            "Help",
+            "Viewer",
+            "Presentations"
+        ],
+        "hiddenTabSet": [],
+        "console_left_on_top": false,
+        "console_right_on_top": true,
+        "additional_source_columns": 0
+    },
+    "jobs_tab_visibility": "shown",
+    "restore_source_documents": false,
+    "restore_last_project": false,
+    "rainbow_parentheses": true,
+    "indent_guides": "rainbowlines",
+    "graphics_backend": "ragg"
+}
