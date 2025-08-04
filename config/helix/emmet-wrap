@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import sys
+import re
+
+contents = sys.argv[1]
+emmet = sys.argv[2]
+
+tag = re.match(r"[-a-z]+", emmet).group(0)
+class_search = re.search(r"\.([-a-z.]+)(#[-a-z]+)?$", emmet)
+id = re.search(r"#([-a-z]+)$", emmet)
+try:
+    classes = class_search.group(1).split(".")
+    classes = " ".join(classes)
+    class_string = f' class="{classes}"'
+except AttributeError:
+    class_string = ""
+try:
+    id_string = f' id="{id.group(1)}"'
+except AttributeError:
+    id_string = ""
+
+print(f"<{tag}{class_string}{id_string}>{contents}</{tag}>")

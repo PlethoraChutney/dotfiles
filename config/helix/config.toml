@@ -21,6 +21,9 @@ render = true
 character = "┊"
 skip-levels = 1
 
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
+
 [keys.insert]
 "C-f" = ":format"
 "S-ret" = "@<ret><up><esc>o\t"
@@ -32,13 +35,14 @@ skip-levels = 1
 "K" = "extend_line_down"
 "L" = "extend_char_right"
 "C-/" = "toggle_comments"
-"A-k" = ["goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
-"A-j" = ["goto_line_end","extend_line_below", "delete_selection", "paste_after"]
+"A-k" = ["select_mode", "goto_line_end","extend_line_below", "delete_selection", "move_line_up", "paste_before"]
+"A-j" = ["select_mode", "goto_line_end","extend_line_below", "delete_selection", "paste_after"]
 "V" = "keep_primary_selection"
 ";" = ["collapse_selection", "keep_primary_selection", "normal_mode"]
 
 [keys.normal.space]
 "t" = "@ b%id "
+"C" = "no_op"
 
 [keys.normal.space.c]
 "c" = "@:sh count-slides <C-r>%<ret>"
@@ -46,6 +50,7 @@ skip-levels = 1
 "s" = "@ghf<gt>lt<lt>\"ty//section<ret>A<ret><ret><lt>section data-auto-animate<gt><ret><tab><lt>h2<gt><lt>/h2<gt><esc>Bt<gt>l\"tpA<ret><backspace><lt>/section<gt><esc>kA<ret>"
 "y" = "@\"ty"
 "p" = "@\"tp"
+"e" = "@:pipe emmet-wrap \"<C-r>.\" "
 
 [keys.select]
 "A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]

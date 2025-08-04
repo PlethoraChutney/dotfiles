@@ -22,7 +22,7 @@
 	"Video background slide": {
 		"scope": "html",
 		"prefix": "bg-video",
-		"body": "<section\ndata-auto-animate\ndata-background-video=\"$1\"\ndata-background-size=\"contain\"\ndata-background-transition=\"none\"\ndata-transition=\"none\"\n>$2\n</section>\n"
+		"body": "<section\ndata-auto-animate\ndata-background-video=\"$1\"\ndata-background-color=\"#005E75\"\ndata-background-size=\"contain\"\ndata-background-transition=\"none\"\ndata-transition=\"none\"\n>$2\n</section>\n"
 	},
 	"Image background slide": {
 		"scope": "html",
@@ -61,7 +61,7 @@
 	},
 	"Image slider": {
 		"scope": "html",
-		"prefix": "imslide",
+		"prefix": "imslider",
 		"body": "div.make-slider[data-default=0]>img*2"
 	}
 }
