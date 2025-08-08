@@ -41,5 +41,6 @@
     "restore_last_project": false,
     "rainbow_parentheses": true,
     "indent_guides": "rainbowlines",
-    "graphics_backend": "ragg"
+    "graphics_backend": "ragg",
+    "syntax_color_console": true
 }

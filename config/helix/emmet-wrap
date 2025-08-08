@@ -19,4 +19,14 @@ try:
 except AttributeError:
     id_string = ""
 
-print(f"<{tag}{class_string}{id_string}>{contents}</{tag}>")
+if "\n" in contents:
+    split_contents = contents.split("\n")
+    num_tabs = contents.count("\n")
+    output = [
+        "\t" * (num_tabs + 1) + f"<{tag}{class_string}{id_string}>",
+        *["\t" + c for c in contents.split("\n")],
+        "\t" * (num_tabs + 1) + f"</{tag}>"
+     ]
+    print("\n".join(output))
+else:
+    print(f"<{tag}{class_string}{id_string}>{contents}</{tag}>")

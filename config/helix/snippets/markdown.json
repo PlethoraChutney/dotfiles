@@ -1,0 +1,7 @@
+{
+  "Blog section": {
+    "scope": "markdown",
+    "prefix": "ssec",
+    "body": "{% section $1 %}\n\t$2\n{% endsection %}"
+  }
+}

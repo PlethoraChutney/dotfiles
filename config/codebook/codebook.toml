@@ -6,18 +6,22 @@ words = [
     "denoiser",
     "ldquo",
     "lowlight",
+    "lowpass",
+    "lowpassed",
     "micrographs",
     "ndash",
+    "overfit",
+    "overfitting",
     "rdquo",
     "revealjs",
+    "sidechain",
     "srgb",
     "strikethrough",
     "structura",
     "unsplash",
 ]
-
 ignore_patterns = [
-    ".*\"[^\"]+\"",
-    "https?://[^\\s]+",
-    "[A-Z]{2,}"
+    '.*"[^"]+"',
+    'https?://[^\s]+',
+    "[A-Z]{2,}",
 ]

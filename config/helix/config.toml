@@ -5,21 +5,25 @@ scrolloff = 10
 bufferline = "multiple"
 jump-label-alphabet = "jfkdlsahgtyrueiwoqpbnvmcxz"
 color-modes = true
-auto-pairs = false
 cursorline = true
 
 [editor.file-picker]
 hidden = false
 
 [editor.cursor-shape]
-insert = "bar"
 normal = "block"
+insert = "underline"
 select = "underline"
 
 [editor.indent-guides]
 render = true
 character = "┊"
 skip-levels = 1
+
+[editor.auto-pairs]
+"(" = ")"
+"{" = "}"
+"[" = "]"
 
 [editor.statusline]
 left = ["mode", "spinner", "version-control", "file-name", "read-only-indicator", "file-modification-indicator"]
@@ -50,7 +54,14 @@ left = ["mode", "spinner", "version-control", "file-name", "read-only-indicator"
 "s" = "@ghf<gt>lt<lt>\"ty//section<ret>A<ret><ret><lt>section data-auto-animate<gt><ret><tab><lt>h2<gt><lt>/h2<gt><esc>Bt<gt>l\"tpA<ret><backspace><lt>/section<gt><esc>kA<ret>"
 "y" = "@\"ty"
 "p" = "@\"tp"
-"e" = "@:pipe emmet-wrap \"<C-r>.\" "
+
+# emmet keybinds
+[keys.normal.space.c.e]
+"w" = "@:pipe emmet-wrap \"%{selection}\" "
+
+# emmet keybinds for select mode -- should be same as normal
+[keys.select.space.c.e]
+"w" = "@:pipe emmet-wrap \"<C-r>.\" "
 
 [keys.select]
 "A-k" = ["goto_line_end","extend_line_below",  "delete_selection", "move_line_up", "paste_before", "select_mode"]

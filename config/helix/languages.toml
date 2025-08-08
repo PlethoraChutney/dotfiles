@@ -30,6 +30,13 @@ roots = [".git"]
 language-servers = ["emmet-lsp", "scls", "codebook"]
 indent = { tab-width = 4, unit = "    "}
 
+[language.auto-pairs]
+"(" = ")"
+"[" = "]"
+"{" = "}"
+"<" = ">"
+"\"" = "\""
+
 [[language]]
 name = "python"
 roots = [".git", "pyproject.toml"]
@@ -41,3 +48,13 @@ file-types = ["py"]
 name = "css"
 language-servers = ["vscode-css-language-server"]
 auto-format = false
+
+[[language]]
+name = "markdown"
+
+[language.auto-pairs]
+"(" = ")"
+"[" = "]"
+"{" = "}"
+"<" = ">"
+"%" = "%"

@@ -32,3 +32,6 @@ keybind = super+shift+left=resize_split:left,50
 keybind = super+shift+up=resize_split:up,50
 keybind = super+shift+down=resize_split:down,50
 keybind = super+shift+right=resize_split:right,50
+
+# app behavior
+window-save-state = always
